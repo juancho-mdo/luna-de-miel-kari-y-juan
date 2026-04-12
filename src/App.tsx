@@ -211,6 +211,19 @@ const BANK_ACCOUNTS: BankAccount[] = [
       { label: "Código SWIFT", value: "BCMRMXMMPYM" },
     ],
   },
+  {
+    currency: "Dólares (cuenta EE.UU.)",
+    currencyCode: "USD",
+    flag: "🇺🇸",
+    bankName: "Lead Bank",
+    accountHolder: "Juan Francisco Monte de Oca Provenzano",
+    fields: [
+      { label: "Número de cuenta", value: "218418851965" },
+      { label: "Número de ruta", value: "101019644" },
+      { label: "Tipo de cuenta", value: "Checking" },
+      { label: "Dirección", value: "Coahuila 159, CDMX 06700, México" },
+    ],
+  },
 ];
 
 const WHATSAPP_KARI = "5491169027629";
@@ -360,7 +373,7 @@ function sendEmailNotification(
     `Nuevo regalo de ${guestName} - ${giftTitle}`
   );
   const body = encodeURIComponent(
-    `¡Hola Juan y Karina!\n\n${guestName} les dejó un regalo:\n\nExperiencia: ${giftTitle}\nMonto: USD ${amount}\nEmail: ${guestEmail}\n${message ? `Mensaje: ${message}\n` : ""}\n¡Felicidades!`
+    `¡Hola Juan y Karina!\n\n${guestName} les dejó un regalo:\n\nExperiencia: ${giftTitle}\nMonto: ${amount}\nEmail: ${guestEmail}\n${message ? `Mensaje: ${message}\n` : ""}\n¡Felicidades!`
   );
   window.open(
     `mailto:${NOTIFICATION_EMAIL}?subject=${subject}&body=${body}`,
@@ -375,6 +388,7 @@ export default function App() {
   const [selectedGift, setSelectedGift] = useState<GiftItem | null>(null);
   const [showBankModal, setShowBankModal] = useState(false);
   const [contributionAmount, setContributionAmount] = useState("");
+  const [selectedCurrency, setSelectedCurrency] = useState("USD");
   const [guestName, setGuestName] = useState("");
   const [guestEmail, setGuestEmail] = useState("");
   const [guestMessage, setGuestMessage] = useState("");
@@ -387,6 +401,7 @@ export default function App() {
   const handleSelectGift = (gift: GiftItem) => {
     setSelectedGift(gift);
     setContributionAmount("");
+    setSelectedCurrency("USD");
     setGuestName("");
     setGuestEmail("");
     setGuestMessage("");
@@ -399,10 +414,12 @@ export default function App() {
     setShowBankModal(true);
   };
 
+  const currencySymbol = selectedCurrency === "ARS" ? "ARS" : selectedCurrency === "MXN" ? "MXN" : "USD";
+
   const buildWhatsAppMsg = () => {
     const amount = contributionAmount;
     return encodeURIComponent(
-      `¡Hola Juan y Karina! 🎉\n\nSoy ${guestName.trim()} y les quiero regalar *${selectedGift?.title}*.\n\nMonto: USD ${amount}\n${guestMessage.trim() ? `Mensaje: ${guestMessage.trim()}\n` : ""}\nMi email: ${guestEmail.trim()}\n\n¡Ya hice la transferencia! 🎁`
+      `¡Hola Juan y Karina! 🎉\n\nSoy ${guestName.trim()} y les quiero regalar *${selectedGift?.title}*.\n\nMonto: ${currencySymbol} ${amount}\n${guestMessage.trim() ? `Mensaje: ${guestMessage.trim()}\n` : ""}\nMi email: ${guestEmail.trim()}\n\n¡Ya hice la transferencia! 🎁`
     );
   };
 
@@ -425,7 +442,7 @@ export default function App() {
       guestName.trim(),
       guestEmail.trim(),
       selectedGift?.title || "",
-      contributionAmount,
+      `${currencySymbol} ${contributionAmount}`,
       guestMessage.trim()
     );
     setShowBankModal(false);
@@ -481,7 +498,17 @@ export default function App() {
       (selectedGift.funded / selectedGift.totalPrice) * 100,
       100
     );
-    const quickAmounts = [50, 100, 200, 500].filter((a) => a <= remaining);
+    const quickAmountsByCurrency: Record<string, number[]> = {
+      USD: [50, 100, 200, 500],
+      ARS: [50000, 100000, 200000, 500000],
+      MXN: [1000, 2000, 5000, 10000],
+    };
+    const currencyLabels: Record<string, string> = {
+      USD: "USD 🇺🇸",
+      ARS: "ARS 🇦🇷",
+      MXN: "MXN 🇲🇽",
+    };
+    const quickAmounts = (quickAmountsByCurrency[selectedCurrency] || quickAmountsByCurrency.USD);
 
     return (
       <div className="min-h-screen">
@@ -550,6 +577,29 @@ export default function App() {
           <div className="space-y-5">
             <h2 className="text-2xl font-semibold">¿Cuánto querés aportar?</h2>
 
+            {/* Currency selector */}
+            <div className="space-y-1.5">
+              <Label className="text-sm">Elegí tu moneda</Label>
+              <div className="flex flex-wrap gap-2">
+                {Object.entries(currencyLabels).map(([code, label]) => (
+                  <button
+                    key={code}
+                    onClick={() => {
+                      setSelectedCurrency(code);
+                      setContributionAmount("");
+                    }}
+                    className={`px-4 py-2 rounded-lg border text-sm font-medium transition-colors ${
+                      selectedCurrency === code
+                        ? "bg-[hsl(207,44%,38%)] text-white border-[hsl(207,44%,38%)]"
+                        : "bg-white hover:bg-muted border-border"
+                    }`}
+                  >
+                    {label}
+                  </button>
+                ))}
+              </div>
+            </div>
+
             {/* Quick amounts */}
             <div className="flex flex-wrap gap-2">
               {quickAmounts.map((amt) => (
@@ -558,11 +608,11 @@ export default function App() {
                   onClick={() => setContributionAmount(String(amt))}
                   className={`px-5 py-2.5 rounded-lg border text-sm font-medium transition-colors ${
                     contributionAmount === String(amt)
-                      ? "bg-[hsl(207,44%,38%)] text-white border-[hsl(207,44%,38%)]"
+                      ? "bg-[hsl(24,60%,56%)] text-white border-[hsl(24,60%,56%)]"
                       : "bg-white hover:bg-muted border-border"
                   }`}
                 >
-                  USD {amt}
+                  {selectedCurrency} {amt.toLocaleString()}
                 </button>
               ))}
             </div>
@@ -570,16 +620,15 @@ export default function App() {
             {/* Custom amount */}
             <div className="space-y-1.5">
               <Label htmlFor="custom-amount" className="text-sm">
-                O ingresá otro monto (USD)
+                O ingresá otro monto ({selectedCurrency})
               </Label>
               <Input
                 id="custom-amount"
                 type="number"
                 min={1}
-                max={remaining}
                 value={contributionAmount}
                 onChange={(e) => setContributionAmount(e.target.value)}
-                placeholder={`Máximo USD ${remaining}`}
+                placeholder={`Monto en ${selectedCurrency}`}
                 className="bg-white"
               />
             </div>
@@ -656,18 +705,34 @@ export default function App() {
               </DialogTitle>
             </DialogHeader>
             <p className="text-sm text-muted-foreground">
-              Elegí la cuenta que te quede más cómoda según tu moneda. Estás
+              Elegí la cuenta que te quede más cómoda. Estás
               aportando{" "}
               <span className="font-semibold text-foreground">
-                USD {Number(contributionAmount).toLocaleString()}
+                {selectedCurrency} {Number(contributionAmount).toLocaleString()}
               </span>{" "}
               para <span className="italic">{selectedGift.title}</span>.
             </p>
 
             <div className="space-y-4 mt-2">
-              {BANK_ACCOUNTS.map((acc) => (
-                <BankAccountCard key={acc.currencyCode} account={acc} />
-              ))}
+              {[...BANK_ACCOUNTS]
+                .sort((a, b) => {
+                  // Priority order for matching currency
+                  const priority = (acc: BankAccount) => {
+                    if (acc.currencyCode !== selectedCurrency) return 3;
+                    if (acc.flag === "🇺🇸") return 0;
+                    if (acc.flag === "🇦🇷" && acc.currencyCode === "USD") return 1;
+                    return 0;
+                  };
+                  return priority(a) - priority(b);
+                })
+                .map((acc, i) => (
+                  <div
+                    key={`${acc.currencyCode}-${i}`}
+                    className={acc.currencyCode === selectedCurrency ? "ring-2 ring-[hsl(207,44%,38%)] rounded-lg" : "opacity-50"}
+                  >
+                    <BankAccountCard account={acc} />
+                  </div>
+                ))}
             </div>
 
             <Separator className="my-2" />
