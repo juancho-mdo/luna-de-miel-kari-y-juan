@@ -60,7 +60,7 @@ const GIFTS: GiftItem[] = [
     icon: <Plane className="w-6 h-6" />,
     location: "Buenos Aires → Atenas",
     image:
-      "https://images.unsplash.com/photo-1436491865332-7a61a109db05?w=600&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1488085061387-422e29b40080?w=600&h=400&fit=crop",
   },
   {
     id: "santorini",
