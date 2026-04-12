@@ -34,6 +34,7 @@ import {
   Check,
   ArrowLeft,
   Send,
+  Mail,
 } from "lucide-react";
 
 /* ───────────────────────────── DATA ───────────────────────────── */
@@ -166,9 +167,7 @@ interface BankAccount {
   flag: string;
   bankName: string;
   accountHolder: string;
-  accountNumber: string;
-  alias: string;
-  extra: string;
+  fields: { label: string; value: string }[];
 }
 
 const BANK_ACCOUNTS: BankAccount[] = [
@@ -176,35 +175,47 @@ const BANK_ACCOUNTS: BankAccount[] = [
     currency: "Pesos Argentinos",
     currencyCode: "ARS",
     flag: "🇦🇷",
-    bankName: "[Banco a confirmar]",
-    accountHolder: "Juan / Karina",
-    accountNumber: "[CBU a confirmar]",
-    alias: "[Alias a confirmar]",
-    extra: "CUIL: [A confirmar]",
+    bankName: "BBVA Argentina",
+    accountHolder: "Juan Francisco Monte de Oca",
+    fields: [
+      { label: "Tipo de cuenta", value: "Caja de Ahorro en $" },
+      { label: "Número de cuenta", value: "165-65245/0" },
+      { label: "CBU", value: "0170165040000006524506" },
+      { label: "Alias CBU", value: "JMONTEDEOCA" },
+      { label: "Código SWIFT", value: "BFRPARBAXXX" },
+    ],
+  },
+  {
+    currency: "Dólares (cuenta Argentina)",
+    currencyCode: "USD",
+    flag: "🇦🇷",
+    bankName: "BBVA Argentina",
+    accountHolder: "Juan Francisco Monte de Oca",
+    fields: [
+      { label: "Tipo de cuenta", value: "Caja de Ahorro en U$S" },
+      { label: "Número de cuenta", value: "165-519304/6" },
+      { label: "CBU", value: "0170165044000051930460" },
+      { label: "Alias CBU", value: "GROSOR.SORTEO.APODO" },
+      { label: "Código SWIFT", value: "BFRPARBAXXX" },
+    ],
   },
   {
     currency: "Pesos Mexicanos",
     currencyCode: "MXN",
     flag: "🇲🇽",
-    bankName: "[Banco a confirmar]",
-    accountHolder: "Juan / Karina",
-    accountNumber: "[CLABE a confirmar]",
-    alias: "[Alias a confirmar]",
-    extra: "RFC: [A confirmar]",
-  },
-  {
-    currency: "Dólares USD",
-    currencyCode: "USD",
-    flag: "🇺🇸",
-    bankName: "[Billetera digital a confirmar]",
-    accountHolder: "Juan / Karina",
-    accountNumber: "[Datos a confirmar]",
-    alias: "[Email/Tag a confirmar]",
-    extra: "",
+    bankName: "BBVA México",
+    accountHolder: "Juan Francisco Monte De Oca",
+    fields: [
+      { label: "Número de cuenta", value: "153 100 9898" },
+      { label: "CLABE", value: "012 180 01531009898 0" },
+      { label: "Código SWIFT", value: "BCMRMXMMPYM" },
+    ],
   },
 ];
 
-const WHATSAPP_NUMBER = "5491100000000"; // Reemplazar con tu número real
+const WHATSAPP_KARI = "5491169027629";
+const WHATSAPP_JUAN = "525540043162";
+const NOTIFICATION_EMAIL = "karinavrossini@gmail.com";
 
 /* ───────────────────────────── COMPONENTS ───────────────────────────── */
 
@@ -331,10 +342,29 @@ function BankAccountCard({ account }: { account: BankAccount }) {
       </div>
       <Separator />
       <CopyField label="Titular" value={account.accountHolder} />
-      <CopyField label="Cuenta / CBU / CLABE" value={account.accountNumber} />
-      <CopyField label="Alias" value={account.alias} />
-      {account.extra && <CopyField label="Info adicional" value={account.extra} />}
+      {account.fields.map((f, i) => (
+        <CopyField key={i} label={f.label} value={f.value} />
+      ))}
     </div>
+  );
+}
+
+function sendEmailNotification(
+  guestName: string,
+  guestEmail: string,
+  giftTitle: string,
+  amount: string,
+  message: string
+) {
+  const subject = encodeURIComponent(
+    `Nuevo regalo de ${guestName} - ${giftTitle}`
+  );
+  const body = encodeURIComponent(
+    `¡Hola Juan y Karina!\n\n${guestName} les dejó un regalo:\n\nExperiencia: ${giftTitle}\nMonto: USD ${amount}\nEmail: ${guestEmail}\n${message ? `Mensaje: ${message}\n` : ""}\n¡Felicidades!`
+  );
+  window.open(
+    `mailto:${NOTIFICATION_EMAIL}?subject=${subject}&body=${body}`,
+    "_blank"
   );
 }
 
@@ -369,12 +399,35 @@ export default function App() {
     setShowBankModal(true);
   };
 
-  const handleConfirmAndWhatsApp = () => {
+  const buildWhatsAppMsg = () => {
     const amount = contributionAmount;
-    const msg = encodeURIComponent(
+    return encodeURIComponent(
       `¡Hola Juan y Karina! 🎉\n\nSoy ${guestName.trim()} y les quiero regalar *${selectedGift?.title}*.\n\nMonto: USD ${amount}\n${guestMessage.trim() ? `Mensaje: ${guestMessage.trim()}\n` : ""}\nMi email: ${guestEmail.trim()}\n\n¡Ya hice la transferencia! 🎁`
     );
-    window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${msg}`, "_blank");
+  };
+
+  const handleWhatsAppKari = () => {
+    window.open(`https://wa.me/${WHATSAPP_KARI}?text=${buildWhatsAppMsg()}`, "_blank");
+    setShowBankModal(false);
+    setView("thank-you");
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
+  const handleWhatsAppJuan = () => {
+    window.open(`https://wa.me/${WHATSAPP_JUAN}?text=${buildWhatsAppMsg()}`, "_blank");
+    setShowBankModal(false);
+    setView("thank-you");
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
+  const handleEmail = () => {
+    sendEmailNotification(
+      guestName.trim(),
+      guestEmail.trim(),
+      selectedGift?.title || "",
+      contributionAmount,
+      guestMessage.trim()
+    );
     setShowBankModal(false);
     setView("thank-you");
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -620,18 +673,37 @@ export default function App() {
             <Separator className="my-2" />
 
             <p className="text-sm text-muted-foreground">
-              Una vez que hayas hecho la transferencia, tocá el botón de abajo
-              para avisarnos por WhatsApp.
+              Una vez que hayas hecho la transferencia, avisanos por alguna de
+              estas vías:
             </p>
 
-            <Button
-              size="lg"
-              className="w-full bg-[#25D366] hover:bg-[#20bd5a] text-white gap-2 text-base"
-              onClick={handleConfirmAndWhatsApp}
-            >
-              <Send className="w-5 h-5" />
-              Avisar por WhatsApp
-            </Button>
+            <div className="space-y-2">
+              <Button
+                size="lg"
+                className="w-full bg-[#25D366] hover:bg-[#20bd5a] text-white gap-2 text-base"
+                onClick={handleWhatsAppKari}
+              >
+                <Send className="w-5 h-5" />
+                WhatsApp a Kari
+              </Button>
+              <Button
+                size="lg"
+                className="w-full bg-[#25D366] hover:bg-[#20bd5a] text-white gap-2 text-base"
+                onClick={handleWhatsAppJuan}
+              >
+                <Send className="w-5 h-5" />
+                WhatsApp a Juan
+              </Button>
+              <Button
+                size="lg"
+                variant="outline"
+                className="w-full gap-2 text-base"
+                onClick={handleEmail}
+              >
+                <Mail className="w-5 h-5" />
+                Enviar por Email
+              </Button>
+            </div>
           </DialogContent>
         </Dialog>
       </div>
@@ -711,14 +783,23 @@ export default function App() {
           Juan & Karina
         </p>
         <p>
-          Cualquier duda, escribinos por{" "}
+          Cualquier duda, escribinos por WhatsApp:{" "}
           <a
-            href={`https://wa.me/${WHATSAPP_NUMBER}`}
+            href={`https://wa.me/${WHATSAPP_KARI}`}
             className="underline hover:text-foreground transition-colors"
             target="_blank"
             rel="noopener"
           >
-            WhatsApp
+            Kari
+          </a>
+          {" · "}
+          <a
+            href={`https://wa.me/${WHATSAPP_JUAN}`}
+            className="underline hover:text-foreground transition-colors"
+            target="_blank"
+            rel="noopener"
+          >
+            Juan
           </a>
         </p>
         <p className="text-xs opacity-70 pt-4">
