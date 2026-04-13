@@ -23,18 +23,20 @@ import {
   Hotel,
   UtensilsCrossed,
   Sailboat,
-  Palmtree,
-  Camera,
   Wine,
   Sparkles,
   Heart,
-  MapPin,
   ChevronDown,
   Copy,
   Check,
   ArrowLeft,
   Send,
   Mail,
+  Car,
+  Crown,
+  Anchor,
+  Sun,
+  Waves,
 } from "lucide-react";
 
 /* ───────────────────────────── DATA ───────────────────────────── */
@@ -53,22 +55,46 @@ interface GiftItem {
 const GIFTS: GiftItem[] = [
   {
     id: "vuelos",
-    title: "Vuelos internacionales",
+    title: "Vuelos CDMX → Europa",
     description:
-      "Llevanos volando desde Buenos Aires a las costas del Mediterráneo. Vuelos ida y vuelta para los dos.",
-    totalPrice: 3200,
+      "Vuelos ida y vuelta desde Ciudad de México a Europa para empezar nuestra aventura mediterránea.",
+    totalPrice: 2000,
     funded: 0,
     icon: <Plane className="w-6 h-6" />,
-    location: "Buenos Aires → Atenas",
+    location: "CDMX → Europa",
     image:
       "https://images.unsplash.com/photo-1488085061387-422e29b40080?w=600&h=400&fit=crop",
   },
   {
-    id: "santorini",
-    title: "3 noches en Santorini",
+    id: "business",
+    title: "Upgrade a Business Class",
     description:
-      "Hotel con vista a la caldera, atardeceres inolvidables en Oia y explorar las playas de arena volcánica.",
-    totalPrice: 1800,
+      "Para llegar a Europa como se merece. Asientos cama, champagne y la mejor manera de empezar la luna de miel.",
+    totalPrice: 2600,
+    funded: 0,
+    icon: <Crown className="w-6 h-6" />,
+    location: "CDMX → Europa",
+    image:
+      "https://images.unsplash.com/photo-1540339832862-474599807836?w=600&h=400&fit=crop",
+  },
+  {
+    id: "traslados",
+    title: "Traslados & movilidad interna",
+    description:
+      "Ferrys entre islas, trenes, autos de alquiler y traslados privados para movernos cómodos por todo el viaje.",
+    totalPrice: 1100,
+    funded: 0,
+    icon: <Car className="w-6 h-6" />,
+    location: "Múltiples destinos",
+    image:
+      "https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=600&h=400&fit=crop",
+  },
+  {
+    id: "hotel-santorini",
+    title: "3 noches de hotel en Santorini",
+    description:
+      "Hotel con vista a la caldera volcánica, atardeceres en Oia y las casitas blancas con cúpulas azules.",
+    totalPrice: 1500,
     funded: 0,
     icon: <Hotel className="w-6 h-6" />,
     location: "Santorini, Grecia",
@@ -76,88 +102,196 @@ const GIFTS: GiftItem[] = [
       "https://images.unsplash.com/photo-1570077188670-e3a8d69ac5ff?w=600&h=400&fit=crop",
   },
   {
-    id: "mykonos",
-    title: "2 noches en Mykonos",
+    id: "cena-lauda",
+    title: "Cena en Lauda Restaurant",
     description:
-      "Callejuelas blancas, playas cristalinas y la mejor vida nocturna de las islas griegas.",
-    totalPrice: 1200,
-    funded: 0,
-    icon: <Palmtree className="w-6 h-6" />,
-    location: "Mykonos, Grecia",
-    image:
-      "https://images.unsplash.com/photo-1601581875309-fafbf2d3ed3a?w=600&h=400&fit=crop",
-  },
-  {
-    id: "costaamalfitana",
-    title: "Costa Amalfitana",
-    description:
-      "Recorrer Positano, Ravello y Amalfi. Paseos en bote, limoncello casero y los acantilados más lindos de Italia.",
-    totalPrice: 1500,
-    funded: 0,
-    icon: <Sailboat className="w-6 h-6" />,
-    location: "Costa Amalfitana, Italia",
-    image:
-      "https://images.unsplash.com/photo-1533104816931-20fa691ff6ca?w=600&h=400&fit=crop",
-  },
-  {
-    id: "roma",
-    title: "3 noches en Roma",
-    description:
-      "El Coliseo, el Vaticano, Trastevere al atardecer, pasta fresca y gelato sin límites.",
-    totalPrice: 1400,
-    funded: 0,
-    icon: <Camera className="w-6 h-6" />,
-    location: "Roma, Italia",
-    image:
-      "https://images.unsplash.com/photo-1552832230-c0197dd311b5?w=600&h=400&fit=crop",
-  },
-  {
-    id: "barcelona",
-    title: "3 noches en Barcelona",
-    description:
-      "La Sagrada Familia, el Barrio Gótico, Las Ramblas, tapas y cava con vista al mar.",
-    totalPrice: 1300,
-    funded: 0,
-    icon: <MapPin className="w-6 h-6" />,
-    location: "Barcelona, España",
-    image:
-      "https://images.unsplash.com/photo-1583422409516-2895a77efded?w=600&h=400&fit=crop",
-  },
-  {
-    id: "cenas",
-    title: "Cenas románticas",
-    description:
-      "Cenas especiales en restaurantes con vista al mar en cada destino. Cocina mediterránea, vinos locales y noches mágicas.",
-    totalPrice: 800,
+      "Una cena inolvidable en uno de los restaurantes más exclusivos de Santorini, con vista al mar Egeo.",
+    totalPrice: 250,
     funded: 0,
     icon: <UtensilsCrossed className="w-6 h-6" />,
-    location: "Cada destino",
+    location: "Santorini, Grecia",
     image:
       "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=600&h=400&fit=crop",
   },
   {
-    id: "vinos",
-    title: "Tour de vinos en la Toscana",
+    id: "cena-therasia",
+    title: "Cena en Therasia Restaurant",
     description:
-      "Un día recorriendo viñedos en la campiña toscana, degustando Chianti, Brunello y aceite de oliva fresco.",
-    totalPrice: 500,
+      "Alta cocina griega contemporánea con los mejores atardeceres de Santorini como telón de fondo.",
+    totalPrice: 250,
+    funded: 0,
+    icon: <UtensilsCrossed className="w-6 h-6" />,
+    location: "Santorini, Grecia",
+    image:
+      "https://images.unsplash.com/photo-1559339352-11d035aa65de?w=600&h=400&fit=crop",
+  },
+  {
+    id: "catamaran",
+    title: "Catamarán privado al atardecer",
+    description:
+      "Navegación privada por la caldera volcánica de Santorini al atardecer, con vino y cena a bordo.",
+    totalPrice: 400,
+    funded: 0,
+    icon: <Sailboat className="w-6 h-6" />,
+    location: "Santorini, Grecia",
+    image:
+      "https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=600&h=400&fit=crop",
+  },
+  {
+    id: "wine-tour",
+    title: "Wine tour en Italia",
+    description:
+      "Un día recorriendo viñedos italianos, degustando los mejores vinos y disfrutando de la campiña.",
+    totalPrice: 200,
     funded: 0,
     icon: <Wine className="w-6 h-6" />,
-    location: "Toscana, Italia",
+    location: "Italia",
     image:
       "https://images.unsplash.com/photo-1506377247377-2a5b3b417ebb?w=600&h=400&fit=crop",
   },
   {
     id: "spa",
-    title: "Día de spa para dos",
+    title: "Día de Spa en pareja",
     description:
-      "Un día de relax total con masajes, tratamientos y piscina con vista al Egeo. Lo merecemos.",
-    totalPrice: 400,
+      "Un día de relax total con masajes, tratamientos faciales y piscinas termales para los dos.",
+    totalPrice: 300,
     funded: 0,
     icon: <Sparkles className="w-6 h-6" />,
-    location: "Santorini, Grecia",
+    location: "Mediterráneo",
     image:
       "https://images.unsplash.com/photo-1544161515-4ab6ce6db874?w=600&h=400&fit=crop",
+  },
+  {
+    id: "hotel-milos",
+    title: "2 noches de hotel en Milos",
+    description:
+      "Hotel en la isla más secreta de las Cícladas, famosa por sus playas de colores y cuevas marinas.",
+    totalPrice: 900,
+    funded: 0,
+    icon: <Hotel className="w-6 h-6" />,
+    location: "Milos, Grecia",
+    image:
+      "https://images.unsplash.com/photo-1586500036706-41963de24d8b?w=600&h=400&fit=crop",
+  },
+  {
+    id: "barco-milos",
+    title: "Tour en barco privado por Milos",
+    description:
+      "Recorrido por las cuevas marinas, playas escondidas y formaciones rocosas de Milos en barco privado.",
+    totalPrice: 400,
+    funded: 0,
+    icon: <Anchor className="w-6 h-6" />,
+    location: "Milos, Grecia",
+    image:
+      "https://images.unsplash.com/photo-1534190760961-74e8c1c5c3da?w=600&h=400&fit=crop",
+  },
+  {
+    id: "hotel-positano",
+    title: "Hotel en Positano",
+    description:
+      "Alojamiento en el pueblo más fotogénico de la Costa Amalfitana, con balcón al mar Tirreno.",
+    totalPrice: 600,
+    funded: 0,
+    icon: <Hotel className="w-6 h-6" />,
+    location: "Positano, Italia",
+    image:
+      "https://images.unsplash.com/photo-1533104816931-20fa691ff6ca?w=600&h=400&fit=crop",
+  },
+  {
+    id: "upgrade-habitacion",
+    title: "Upgrade de habitación",
+    description:
+      "Mejorar a una habitación con jacuzzi privado, terraza panorámica o suite premium en cualquier destino.",
+    totalPrice: 100,
+    funded: 0,
+    icon: <Crown className="w-6 h-6" />,
+    location: "Cualquier destino",
+    image:
+      "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=600&h=400&fit=crop",
+  },
+  {
+    id: "hotel-antibes",
+    title: "2 noches de hotel en Antibes",
+    description:
+      "Hotel en la Riviera Francesa, entre Niza y Cannes, con playas de aguas turquesas y pueblo medieval.",
+    totalPrice: 800,
+    funded: 0,
+    icon: <Hotel className="w-6 h-6" />,
+    location: "Antibes, Francia",
+    image:
+      "https://images.unsplash.com/photo-1533929736458-ca588d08c8be?w=600&h=400&fit=crop",
+  },
+  {
+    id: "chevre-dor",
+    title: "Road trip & cena en Le Chèvre d'Or",
+    description:
+      "Ruta panorámica por la Riviera Francesa hasta el pueblo medieval de Èze, con cena en el restaurante con estrella Michelin Le Chèvre d'Or.",
+    totalPrice: 350,
+    funded: 0,
+    icon: <UtensilsCrossed className="w-6 h-6" />,
+    location: "Èze, Francia",
+    image:
+      "https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=600&h=400&fit=crop",
+  },
+  {
+    id: "hotel-mallorca",
+    title: "2 noches de hotel en Mallorca",
+    description:
+      "Hotel en la isla más grande de las Baleares, con calas de agua cristalina y montañas de la Serra de Tramuntana.",
+    totalPrice: 700,
+    funded: 0,
+    icon: <Hotel className="w-6 h-6" />,
+    location: "Mallorca, España",
+    image:
+      "https://images.unsplash.com/photo-1566073771259-6a8506099945?w=600&h=400&fit=crop",
+  },
+  {
+    id: "roadtrip-mallorca",
+    title: "Road trip & spa en Mallorca",
+    description:
+      "Día de ruta en auto por la Serra de Tramuntana con parada en un spa con vistas al Mediterráneo.",
+    totalPrice: 400,
+    funded: 0,
+    icon: <Car className="w-6 h-6" />,
+    location: "Mallorca, España",
+    image:
+      "https://images.unsplash.com/photo-1512100356356-de1b84283e18?w=600&h=400&fit=crop",
+  },
+  {
+    id: "hotel-formentera",
+    title: "2 noches de hotel en Formentera",
+    description:
+      "La isla más paradisíaca del Mediterráneo. Playas de arena blanca y aguas caribeñas en pleno mar Balear.",
+    totalPrice: 1000,
+    funded: 0,
+    icon: <Hotel className="w-6 h-6" />,
+    location: "Formentera, España",
+    image:
+      "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=600&h=400&fit=crop",
+  },
+  {
+    id: "barca-formentera",
+    title: "Día en barca por calas secretas",
+    description:
+      "Alquilar una barca propia para explorar las calas escondidas y aguas cristalinas de Formentera.",
+    totalPrice: 200,
+    funded: 0,
+    icon: <Waves className="w-6 h-6" />,
+    location: "Formentera, España",
+    image:
+      "https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=600&h=400&fit=crop",
+  },
+  {
+    id: "juan-y-andrea",
+    title: "Almuerzo en Juan y Andrea",
+    description:
+      "Almuerzo en el mítico restaurante de playa Juan y Andrea en Formentera. Pescado fresco, paella y los pies en la arena.",
+    totalPrice: 180,
+    funded: 0,
+    icon: <Sun className="w-6 h-6" />,
+    location: "Formentera, España",
+    image:
+      "https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?w=600&h=400&fit=crop",
   },
 ];
 
@@ -608,7 +742,7 @@ export default function App() {
                   onClick={() => setContributionAmount(String(amt))}
                   className={`px-5 py-2.5 rounded-lg border text-sm font-medium transition-colors ${
                     contributionAmount === String(amt)
-                      ? "bg-[hsl(24,60%,56%)] text-white border-[hsl(24,60%,56%)]"
+                      ? "bg-[#ad4646] text-white border-[#ad4646]"
                       : "bg-white hover:bg-muted border-border"
                   }`}
                 >
@@ -681,7 +815,7 @@ export default function App() {
 
             <Button
               size="lg"
-              className="w-full bg-[hsl(24,60%,56%)] hover:bg-[hsl(24,60%,48%)] text-white text-base gap-2"
+              className="w-full bg-[#ad4646] hover:bg-[#963c3c] text-white text-base gap-2"
               onClick={handleShowBankInfo}
               disabled={
                 !guestName.trim() ||
@@ -814,7 +948,7 @@ export default function App() {
       {/* Intro section */}
       <section className="py-16 md:py-20 px-4">
         <div className="max-w-2xl mx-auto text-center space-y-4">
-          <Heart className="w-8 h-8 mx-auto text-[hsl(24,60%,56%)] mb-2" />
+          <Heart className="w-8 h-8 mx-auto text-[#ad4646] mb-2" />
           <h2 className="text-3xl md:text-4xl font-semibold text-[hsl(207,44%,38%)]">
             Regalanos experiencias
           </h2>
