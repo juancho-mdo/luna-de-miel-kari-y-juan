@@ -26,6 +26,8 @@ import {
   Wine,
   Sparkles,
   Heart,
+  Camera,
+  MapPin,
   ChevronDown,
   Copy,
   Check,
@@ -63,31 +65,19 @@ const GIFTS: GiftItem[] = [
     icon: <Plane className="w-6 h-6" />,
     location: "CDMX → Europa",
     image:
-      "https://images.unsplash.com/photo-1488085061387-422e29b40080?w=600&h=400&fit=crop",
-  },
-  {
-    id: "business",
-    title: "Upgrade a Business Class",
-    description:
-      "Para llegar a Europa como se merece. Asientos cama, champagne y la mejor manera de empezar la luna de miel.",
-    totalPrice: 2600,
-    funded: 0,
-    icon: <Crown className="w-6 h-6" />,
-    location: "CDMX → Europa",
-    image:
-      "https://images.unsplash.com/photo-1540339832862-474599807836?w=600&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1436491865332-7a61a109db56?w=600&h=400&fit=crop",
   },
   {
     id: "traslados",
     title: "Traslados & movilidad interna",
     description:
-      "Ferrys entre islas, trenes, autos de alquiler y traslados privados para movernos cómodos por todo el viaje.",
+      "Ferrys entre islas griegas, trenes por Italia, autos de alquiler y traslados privados para movernos cómodos.",
     totalPrice: 1100,
     funded: 0,
     icon: <Car className="w-6 h-6" />,
     location: "Múltiples destinos",
     image:
-      "https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=600&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=600&h=400&fit=crop",
   },
   {
     id: "hotel-santorini",
@@ -105,13 +95,13 @@ const GIFTS: GiftItem[] = [
     id: "cena-lauda",
     title: "Cena en Lauda Restaurant",
     description:
-      "Una cena inolvidable en uno de los restaurantes más exclusivos de Santorini, con vista al mar Egeo.",
+      "Una cena inolvidable en uno de los restaurantes más exclusivos de Santorini, con vista al mar Egeo y cocina mediterránea de autor.",
     totalPrice: 250,
     funded: 0,
     icon: <UtensilsCrossed className="w-6 h-6" />,
     location: "Santorini, Grecia",
     image:
-      "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=600&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1559339352-11d035aa65de?w=600&h=400&fit=crop",
   },
   {
     id: "cena-therasia",
@@ -123,7 +113,7 @@ const GIFTS: GiftItem[] = [
     icon: <UtensilsCrossed className="w-6 h-6" />,
     location: "Santorini, Grecia",
     image:
-      "https://images.unsplash.com/photo-1559339352-11d035aa65de?w=600&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=600&h=400&fit=crop",
   },
   {
     id: "catamaran",
@@ -135,17 +125,17 @@ const GIFTS: GiftItem[] = [
     icon: <Sailboat className="w-6 h-6" />,
     location: "Santorini, Grecia",
     image:
-      "https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=600&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1605281317010-fe5ffe798166?w=600&h=400&fit=crop",
   },
   {
     id: "wine-tour",
     title: "Wine tour en Italia",
     description:
-      "Un día recorriendo viñedos italianos, degustando los mejores vinos y disfrutando de la campiña.",
+      "Un día recorriendo viñedos de la Toscana, degustando Chianti y Brunello con vista a los cipreses.",
     totalPrice: 200,
     funded: 0,
     icon: <Wine className="w-6 h-6" />,
-    location: "Italia",
+    location: "Toscana, Italia",
     image:
       "https://images.unsplash.com/photo-1506377247377-2a5b3b417ebb?w=600&h=400&fit=crop",
   },
@@ -165,13 +155,13 @@ const GIFTS: GiftItem[] = [
     id: "hotel-milos",
     title: "2 noches de hotel en Milos",
     description:
-      "Hotel en la isla más secreta de las Cícladas, famosa por sus playas de colores y cuevas marinas.",
+      "Hotel en la isla más secreta de las Cícladas, famosa por Sarakiniko y sus playas de roca blanca lunar.",
     totalPrice: 900,
     funded: 0,
     icon: <Hotel className="w-6 h-6" />,
     location: "Milos, Grecia",
     image:
-      "https://images.unsplash.com/photo-1586500036706-41963de24d8b?w=600&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1601581875309-fafbf2d3ed3a?w=600&h=400&fit=crop",
   },
   {
     id: "barco-milos",
@@ -225,13 +215,13 @@ const GIFTS: GiftItem[] = [
     id: "chevre-dor",
     title: "Road trip & cena en Le Chèvre d'Or",
     description:
-      "Ruta panorámica por la Riviera Francesa hasta el pueblo medieval de Èze, con cena en el restaurante con estrella Michelin Le Chèvre d'Or.",
+      "Ruta panorámica por la Riviera Francesa hasta Èze, con cena en el restaurante con estrella Michelin Le Chèvre d'Or.",
     totalPrice: 350,
     funded: 0,
     icon: <UtensilsCrossed className="w-6 h-6" />,
     location: "Èze, Francia",
     image:
-      "https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=600&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1537799943037-f5da89a65689?w=600&h=400&fit=crop",
   },
   {
     id: "hotel-mallorca",
@@ -292,6 +282,127 @@ const GIFTS: GiftItem[] = [
     location: "Formentera, España",
     image:
       "https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?w=600&h=400&fit=crop",
+  },
+  /* ── 10 NUEVAS EXPERIENCIAS IMPERDIBLES ── */
+  {
+    id: "acropolis-atenas",
+    title: "Atardecer en la Acrópolis de Atenas",
+    description:
+      "Tour privado por la Acrópolis y el Partenón al atardecer, con guía en español y vistas a toda Atenas.",
+    totalPrice: 400,
+    funded: 0,
+    icon: <Camera className="w-6 h-6" />,
+    location: "Atenas, Grecia",
+    image:
+      "https://images.unsplash.com/photo-1555993539-1732b0258235?w=600&h=400&fit=crop",
+  },
+  {
+    id: "clase-cocina-italia",
+    title: "Clase de cocina italiana",
+    description:
+      "Aprender a hacer pasta fresca y tiramisú con un chef local en un pueblo de la Toscana. Almuerzo incluido.",
+    totalPrice: 350,
+    funded: 0,
+    icon: <UtensilsCrossed className="w-6 h-6" />,
+    location: "Toscana, Italia",
+    image:
+      "https://images.unsplash.com/photo-1556910103-1c02745aae4d?w=600&h=400&fit=crop",
+  },
+  {
+    id: "kayak-capri",
+    title: "Kayak por la costa de Capri",
+    description:
+      "Recorrido en kayak por las grutas y acantilados de Capri, con parada para nadar en aguas turquesas.",
+    totalPrice: 300,
+    funded: 0,
+    icon: <Waves className="w-6 h-6" />,
+    location: "Capri, Italia",
+    image:
+      "https://images.unsplash.com/photo-1472745942893-4b9f730c7668?w=600&h=400&fit=crop",
+  },
+  {
+    id: "barco-amalfi",
+    title: "Tour en barco por la Costa Amalfitana",
+    description:
+      "Día completo navegando de Positano a Amalfi pasando por cuevas escondidas, con limoncello y lunch a bordo.",
+    totalPrice: 500,
+    funded: 0,
+    icon: <Sailboat className="w-6 h-6" />,
+    location: "Costa Amalfitana, Italia",
+    image:
+      "https://images.unsplash.com/photo-1516483638261-f4dbaf036963?w=600&h=400&fit=crop",
+  },
+  {
+    id: "flamenco-espana",
+    title: "Show de flamenco privado",
+    description:
+      "Noche de tablao flamenco con cena y vinos en un local íntimo. Arte, pasión y gastronomía española.",
+    totalPrice: 300,
+    funded: 0,
+    icon: <Sparkles className="w-6 h-6" />,
+    location: "España",
+    image:
+      "https://images.unsplash.com/photo-1551632811-561732d1e306?w=600&h=400&fit=crop",
+  },
+  {
+    id: "buceo-mediterraneo",
+    title: "Buceo en el Mediterráneo",
+    description:
+      "Inmersión guiada para dos en aguas cristalinas, descubriendo fondos marinos con peces y corales.",
+    totalPrice: 400,
+    funded: 0,
+    icon: <Anchor className="w-6 h-6" />,
+    location: "Grecia o España",
+    image:
+      "https://images.unsplash.com/photo-1544551763-77932985c982?w=600&h=400&fit=crop",
+  },
+  {
+    id: "creta-aventura",
+    title: "2 noches en Creta",
+    description:
+      "La isla más grande de Grecia: playas de Elafonisi, gargantas de Samariá y la mejor cocina griega tradicional.",
+    totalPrice: 800,
+    funded: 0,
+    icon: <Hotel className="w-6 h-6" />,
+    location: "Creta, Grecia",
+    image:
+      "https://images.unsplash.com/photo-1586500036706-41963de24d8b?w=600&h=400&fit=crop",
+  },
+  {
+    id: "cinque-terre",
+    title: "Día en Cinque Terre",
+    description:
+      "Tren panorámico entre los cinco pueblos coloridos de la costa de Liguria, con focaccia y pesto genovés.",
+    totalPrice: 400,
+    funded: 0,
+    icon: <MapPin className="w-6 h-6" />,
+    location: "Cinque Terre, Italia",
+    image:
+      "https://images.unsplash.com/photo-1516483638261-f4dbaf036963?w=600&h=400&fit=crop",
+  },
+  {
+    id: "ibiza-sunset",
+    title: "Atardecer VIP en Ibiza",
+    description:
+      "Sesión de DJ al atardecer en un beach club exclusivo de Ibiza, con cena y champagne con vista al mar.",
+    totalPrice: 500,
+    funded: 0,
+    icon: <Sun className="w-6 h-6" />,
+    location: "Ibiza, España",
+    image:
+      "https://images.unsplash.com/photo-1504681869696-d977211a5f4c?w=600&h=400&fit=crop",
+  },
+  {
+    id: "globo-capadocia",
+    title: "Vuelo en globo aerostático",
+    description:
+      "Sobrevolar paisajes mediterráneos al amanecer en globo aerostático. Una experiencia única e inolvidable.",
+    totalPrice: 600,
+    funded: 0,
+    icon: <Plane className="w-6 h-6" />,
+    location: "Mediterráneo",
+    image:
+      "https://images.unsplash.com/photo-1507608616759-54f48f0af0ee?w=600&h=400&fit=crop",
   },
 ];
 
@@ -371,12 +482,15 @@ type AppView = "home" | "gift-detail" | "thank-you";
 function GiftCard({
   gift,
   onSelect,
+  extraFunded = 0,
 }: {
   gift: GiftItem;
   onSelect: (g: GiftItem) => void;
+  extraFunded?: number;
 }) {
-  const percent = Math.min((gift.funded / gift.totalPrice) * 100, 100);
-  const remaining = Math.max(gift.totalPrice - gift.funded, 0);
+  const totalFunded = gift.funded + extraFunded;
+  const percent = Math.min((totalFunded / gift.totalPrice) * 100, 100);
+  const remaining = Math.max(gift.totalPrice - totalFunded, 0);
 
   return (
     <Card className="overflow-hidden group hover:shadow-lg transition-shadow duration-300 bg-white">
@@ -398,7 +512,7 @@ function GiftCard({
       </div>
       <CardHeader className="pb-2 pt-4 px-5">
         <div className="flex items-center gap-2.5 mb-1">
-          <span className="text-[hsl(207,44%,38%)]">{gift.icon}</span>
+          <span className="text-[#84814E]">{gift.icon}</span>
           <CardTitle className="text-xl font-semibold leading-tight">
             {gift.title}
           </CardTitle>
@@ -413,7 +527,7 @@ function GiftCard({
             <span className="text-muted-foreground">
               Recaudado:{" "}
               <span className="font-semibold text-foreground">
-                USD {gift.funded.toLocaleString()}
+                USD {totalFunded.toLocaleString()}
               </span>
             </span>
             <span className="text-muted-foreground">
@@ -438,10 +552,10 @@ function GiftCard({
       <CardFooter className="px-5 pb-5 pt-2">
         <Button
           onClick={() => onSelect(gift)}
-          className="w-full bg-[hsl(207,44%,38%)] hover:bg-[hsl(207,44%,30%)] text-white"
+          className="w-full bg-[#84814E] hover:bg-[#6e6c42] text-white"
           disabled={remaining <= 0}
         >
-          {remaining > 0 ? "Quiero regalar esto" : "Completado"}
+          {remaining > 0 ? "Quiero aportar" : "Completado"}
         </Button>
       </CardFooter>
     </Card>
@@ -507,7 +621,7 @@ function sendEmailNotification(
     `Nuevo regalo de ${guestName} - ${giftTitle}`
   );
   const body = encodeURIComponent(
-    `¡Hola Juan y Karina!\n\n${guestName} les dejó un regalo:\n\nExperiencia: ${giftTitle}\nMonto: ${amount}\nEmail: ${guestEmail}\n${message ? `Mensaje: ${message}\n` : ""}\n¡Felicidades!`
+    `¡Hola Karina y Juan!\n\n${guestName} les dejó un regalo:\n\nExperiencia: ${giftTitle}\nMonto: ${amount}\nEmail: ${guestEmail}\n${message ? `Mensaje: ${message}\n` : ""}\n¡Felicidades!`
   );
   window.open(
     `mailto:${NOTIFICATION_EMAIL}?subject=${subject}&body=${body}`,
@@ -516,6 +630,22 @@ function sendEmailNotification(
 }
 
 /* ───────────────────────────── APP ───────────────────────────── */
+
+// Helper to load/save contributions from localStorage
+function loadContributions(): Record<string, number> {
+  try {
+    const saved = localStorage.getItem("wedding-contributions");
+    return saved ? JSON.parse(saved) : {};
+  } catch {
+    return {};
+  }
+}
+
+function saveContributions(c: Record<string, number>) {
+  try {
+    localStorage.setItem("wedding-contributions", JSON.stringify(c));
+  } catch { /* ignore */ }
+}
 
 export default function App() {
   const [view, setView] = useState<AppView>("home");
@@ -526,7 +656,12 @@ export default function App() {
   const [guestName, setGuestName] = useState("");
   const [guestEmail, setGuestEmail] = useState("");
   const [guestMessage, setGuestMessage] = useState("");
+  const [contributions, setContributions] = useState<Record<string, number>>(loadContributions);
+  const [transferConfirmed, setTransferConfirmed] = useState(false);
   const giftsRef = useRef<HTMLDivElement>(null);
+
+  // Helper to get total funded for a gift
+  const getFunded = (gift: GiftItem) => gift.funded + (contributions[gift.id] || 0);
 
   const scrollToGifts = () => {
     giftsRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -539,13 +674,27 @@ export default function App() {
     setGuestName("");
     setGuestEmail("");
     setGuestMessage("");
+    setTransferConfirmed(false);
     setView("gift-detail");
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   const handleShowBankInfo = () => {
     if (!guestName.trim() || !guestEmail.trim() || !contributionAmount) return;
+    setTransferConfirmed(false);
     setShowBankModal(true);
+  };
+
+  const handleConfirmTransfer = () => {
+    if (!selectedGift) return;
+    // For USD contributions, add directly. For other currencies we still record in USD equivalent (approximate).
+    // Since the gifts track in USD, we record the amount as-is for simplicity.
+    const amount = Number(contributionAmount) || 0;
+    const newContributions = { ...contributions };
+    newContributions[selectedGift.id] = (newContributions[selectedGift.id] || 0) + amount;
+    setContributions(newContributions);
+    saveContributions(newContributions);
+    setTransferConfirmed(true);
   };
 
   const currencySymbol = selectedCurrency === "ARS" ? "ARS" : selectedCurrency === "MXN" ? "MXN" : "USD";
@@ -553,7 +702,7 @@ export default function App() {
   const buildWhatsAppMsg = () => {
     const amount = contributionAmount;
     return encodeURIComponent(
-      `¡Hola Juan y Karina! 🎉\n\nSoy ${guestName.trim()} y les quiero regalar *${selectedGift?.title}*.\n\nMonto: ${currencySymbol} ${amount}\n${guestMessage.trim() ? `Mensaje: ${guestMessage.trim()}\n` : ""}\nMi email: ${guestEmail.trim()}\n\n¡Ya hice la transferencia! 🎁`
+      `¡Hola Karina y Juan! 🎉\n\nSoy ${guestName.trim()} y les quiero aportar para *${selectedGift?.title}*.\n\nMonto: ${currencySymbol} ${amount}\n${guestMessage.trim() ? `Mensaje: ${guestMessage.trim()}\n` : ""}\nMi email: ${guestEmail.trim()}\n\n¡Ya hice la transferencia! 🎁`
     );
   };
 
@@ -590,7 +739,7 @@ export default function App() {
       <div className="min-h-screen flex items-center justify-center px-4 py-12">
         <div className="max-w-lg text-center space-y-6">
           <div className="text-7xl mb-2">🤍</div>
-          <h1 className="text-4xl md:text-5xl font-semibold text-[hsl(207,44%,38%)]">
+          <h1 className="text-4xl md:text-5xl font-semibold text-[#84814E]">
             ¡Muchas gracias!
           </h1>
           <p className="text-lg text-muted-foreground leading-relaxed">
@@ -602,7 +751,7 @@ export default function App() {
             Con amor,
             <br />
             <span className="font-semibold text-foreground text-lg italic">
-              Juan & Karina
+              Karina & Juan
             </span>
           </p>
           <Separator className="my-4" />
@@ -624,12 +773,13 @@ export default function App() {
 
   /* ─── GIFT DETAIL PAGE ─── */
   if (view === "gift-detail" && selectedGift) {
+    const totalFunded = getFunded(selectedGift);
     const remaining = Math.max(
-      selectedGift.totalPrice - selectedGift.funded,
+      selectedGift.totalPrice - totalFunded,
       0
     );
     const percent = Math.min(
-      (selectedGift.funded / selectedGift.totalPrice) * 100,
+      (totalFunded / selectedGift.totalPrice) * 100,
       100
     );
     const quickAmountsByCurrency: Record<string, number[]> = {
@@ -685,7 +835,7 @@ export default function App() {
               <span>
                 Recaudado:{" "}
                 <span className="font-semibold">
-                  USD {selectedGift.funded.toLocaleString()}
+                  USD {totalFunded.toLocaleString()}
                 </span>
               </span>
               <span>
@@ -724,7 +874,7 @@ export default function App() {
                     }}
                     className={`px-4 py-2 rounded-lg border text-sm font-medium transition-colors ${
                       selectedCurrency === code
-                        ? "bg-[hsl(207,44%,38%)] text-white border-[hsl(207,44%,38%)]"
+                        ? "bg-[#84814E] text-white border-[#84814E]"
                         : "bg-white hover:bg-muted border-border"
                     }`}
                   >
@@ -862,7 +1012,7 @@ export default function App() {
                 .map((acc, i) => (
                   <div
                     key={`${acc.currencyCode}-${i}`}
-                    className={acc.currencyCode === selectedCurrency ? "ring-2 ring-[hsl(207,44%,38%)] rounded-lg" : "opacity-50"}
+                    className={acc.currencyCode === selectedCurrency ? "ring-2 ring-[#84814E] rounded-lg" : "opacity-50"}
                   >
                     <BankAccountCard account={acc} />
                   </div>
@@ -871,38 +1021,59 @@ export default function App() {
 
             <Separator className="my-2" />
 
-            <p className="text-sm text-muted-foreground">
-              Una vez que hayas hecho la transferencia, avisanos por alguna de
-              estas vías:
-            </p>
-
-            <div className="space-y-2">
-              <Button
-                size="lg"
-                className="w-full bg-[#25D366] hover:bg-[#20bd5a] text-white gap-2 text-base"
-                onClick={handleWhatsAppKari}
-              >
-                <Send className="w-5 h-5" />
-                WhatsApp a Kari
-              </Button>
-              <Button
-                size="lg"
-                className="w-full bg-[#25D366] hover:bg-[#20bd5a] text-white gap-2 text-base"
-                onClick={handleWhatsAppJuan}
-              >
-                <Send className="w-5 h-5" />
-                WhatsApp a Juan
-              </Button>
-              <Button
-                size="lg"
-                variant="outline"
-                className="w-full gap-2 text-base"
-                onClick={handleEmail}
-              >
-                <Mail className="w-5 h-5" />
-                Enviar por Email
-              </Button>
-            </div>
+            {!transferConfirmed ? (
+              <>
+                <p className="text-sm text-muted-foreground">
+                  Una vez que hayas hecho la transferencia, confirmalo acá abajo.
+                </p>
+                <Button
+                  size="lg"
+                  className="w-full bg-[#ad4646] hover:bg-[#963c3c] text-white gap-2 text-base"
+                  onClick={handleConfirmTransfer}
+                >
+                  <Check className="w-5 h-5" />
+                  Ya realicé la transferencia
+                </Button>
+              </>
+            ) : (
+              <>
+                <div className="bg-green-50 border border-green-200 rounded-lg p-3 text-center">
+                  <p className="text-green-700 font-medium text-sm">
+                    ✓ ¡Transferencia registrada! Gracias por tu aporte.
+                  </p>
+                </div>
+                <p className="text-sm text-muted-foreground">
+                  Ahora avisanos para que lo sepamos:
+                </p>
+                <div className="space-y-2">
+                  <Button
+                    size="lg"
+                    className="w-full bg-[#25D366] hover:bg-[#20bd5a] text-white gap-2 text-base"
+                    onClick={handleWhatsAppKari}
+                  >
+                    <Send className="w-5 h-5" />
+                    WhatsApp a Kari
+                  </Button>
+                  <Button
+                    size="lg"
+                    className="w-full bg-[#25D366] hover:bg-[#20bd5a] text-white gap-2 text-base"
+                    onClick={handleWhatsAppJuan}
+                  >
+                    <Send className="w-5 h-5" />
+                    WhatsApp a Juan
+                  </Button>
+                  <Button
+                    size="lg"
+                    variant="outline"
+                    className="w-full gap-2 text-base"
+                    onClick={handleEmail}
+                  >
+                    <Mail className="w-5 h-5" />
+                    Enviar por Email
+                  </Button>
+                </div>
+              </>
+            )}
           </DialogContent>
         </Dialog>
       </div>
@@ -925,14 +1096,14 @@ export default function App() {
             Nos casamos
           </p>
           <h1 className="text-5xl md:text-7xl lg:text-8xl font-light mb-3 leading-tight">
-            Juan{" "}
+            Karina{" "}
             <span className="font-light italic opacity-80">&</span>{" "}
-            Karina
+            Juan
           </h1>
           <Separator className="w-16 mx-auto my-5 bg-white/40" />
           <p className="text-lg md:text-xl font-light leading-relaxed max-w-xl mx-auto opacity-90">
             Nuestra luna de miel soñada: playas e islas de Grecia, Italia y
-            España. Ayudanos a hacerla realidad.
+            España. Gracias por ayudarnos a hacerla realidad.
           </p>
           <Button
             onClick={scrollToGifts}
@@ -949,7 +1120,7 @@ export default function App() {
       <section className="py-16 md:py-20 px-4">
         <div className="max-w-2xl mx-auto text-center space-y-4">
           <Heart className="w-8 h-8 mx-auto text-[#ad4646] mb-2" />
-          <h2 className="text-3xl md:text-4xl font-semibold text-[hsl(207,44%,38%)]">
+          <h2 className="text-3xl md:text-4xl font-semibold text-[#84814E]">
             Regalanos experiencias
           </h2>
           <p className="text-muted-foreground text-lg leading-relaxed">
@@ -970,6 +1141,7 @@ export default function App() {
                 key={gift.id}
                 gift={gift}
                 onSelect={handleSelectGift}
+                extraFunded={contributions[gift.id] || 0}
               />
             ))}
           </div>
@@ -979,7 +1151,7 @@ export default function App() {
       {/* Footer */}
       <footer className="border-t py-10 text-center text-sm text-muted-foreground space-y-2 px-4">
         <p className="text-lg italic font-serif text-foreground">
-          Juan & Karina
+          Karina & Juan
         </p>
         <p>
           Cualquier duda, escribinos por WhatsApp:{" "}
