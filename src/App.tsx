@@ -10,12 +10,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Progress } from "@/components/ui/progress";
-import {
-  Dialog,
-  DialogContent,
-  DialogHeader,
-  DialogTitle,
-} from "@/components/ui/dialog";
+// Dialog removed — replaced with inline wizard steps
 import { Separator } from "@/components/ui/separator";
 import { Badge } from "@/components/ui/badge";
 import {
@@ -65,14 +60,14 @@ const GIFTS: GiftItem[] = [
     icon: <Plane className="w-6 h-6" />,
     location: "CDMX → Europa",
     image:
-      "https://images.unsplash.com/photo-1436491865332-7a61a109db56?w=600&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1436491865332-7a61a109db05?w=600&h=400&fit=crop",
   },
   {
     id: "traslados",
     title: "Traslados & movilidad interna",
     description:
-      "Ferrys entre islas griegas, trenes por Italia, autos de alquiler y traslados privados para movernos cómodos.",
-    totalPrice: 1100,
+      "Ferrys entre islas griegas, trenes por Italia, autos de alquiler y traslados para movernos cómodos.",
+    totalPrice: 1000,
     funded: 0,
     icon: <Car className="w-6 h-6" />,
     location: "Múltiples destinos",
@@ -92,11 +87,11 @@ const GIFTS: GiftItem[] = [
       "https://images.unsplash.com/photo-1570077188670-e3a8d69ac5ff?w=600&h=400&fit=crop",
   },
   {
-    id: "cena-lauda",
-    title: "Cena en Lauda Restaurant",
+    id: "cenas-santorini",
+    title: "Cenas en Santorini",
     description:
-      "Una cena inolvidable en uno de los restaurantes más exclusivos de Santorini, con vista al mar Egeo y cocina mediterránea de autor.",
-    totalPrice: 250,
+      "Dos cenas especiales en los mejores restaurantes de Santorini: Lauda y Therasia, con vista al mar Egeo.",
+    totalPrice: 500,
     funded: 0,
     icon: <UtensilsCrossed className="w-6 h-6" />,
     location: "Santorini, Grecia",
@@ -104,22 +99,10 @@ const GIFTS: GiftItem[] = [
       "https://images.unsplash.com/photo-1559339352-11d035aa65de?w=600&h=400&fit=crop",
   },
   {
-    id: "cena-therasia",
-    title: "Cena en Therasia Restaurant",
-    description:
-      "Alta cocina griega contemporánea con los mejores atardeceres de Santorini como telón de fondo.",
-    totalPrice: 250,
-    funded: 0,
-    icon: <UtensilsCrossed className="w-6 h-6" />,
-    location: "Santorini, Grecia",
-    image:
-      "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=600&h=400&fit=crop",
-  },
-  {
     id: "catamaran",
-    title: "Catamarán privado al atardecer",
+    title: "Catamarán al atardecer en Santorini",
     description:
-      "Navegación privada por la caldera volcánica de Santorini al atardecer, con vino y cena a bordo.",
+      "Navegación por la caldera volcánica de Santorini al atardecer, con vino y cena a bordo.",
     totalPrice: 400,
     funded: 0,
     icon: <Sailboat className="w-6 h-6" />,
@@ -132,7 +115,7 @@ const GIFTS: GiftItem[] = [
     title: "Wine tour en Italia",
     description:
       "Un día recorriendo viñedos de la Toscana, degustando Chianti y Brunello con vista a los cipreses.",
-    totalPrice: 200,
+    totalPrice: 300,
     funded: 0,
     icon: <Wine className="w-6 h-6" />,
     location: "Toscana, Italia",
@@ -143,13 +126,13 @@ const GIFTS: GiftItem[] = [
     id: "spa",
     title: "Día de Spa en pareja",
     description:
-      "Un día de relax total con masajes, tratamientos faciales y piscinas termales para los dos.",
+      "Un día de relax total con masajes, tratamientos y piscinas termales para los dos.",
     totalPrice: 300,
     funded: 0,
     icon: <Sparkles className="w-6 h-6" />,
     location: "Mediterráneo",
     image:
-      "https://images.unsplash.com/photo-1544161515-4ab6ce6db874?w=600&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1600334129128-685c5582fd35?w=600&h=400&fit=crop",
   },
   {
     id: "hotel-milos",
@@ -165,15 +148,15 @@ const GIFTS: GiftItem[] = [
   },
   {
     id: "barco-milos",
-    title: "Tour en barco privado por Milos",
+    title: "Tour en barco por Milos",
     description:
-      "Recorrido por las cuevas marinas, playas escondidas y formaciones rocosas de Milos en barco privado.",
+      "Recorrido en velero por las cuevas marinas, playas escondidas y formaciones rocosas de Milos.",
     totalPrice: 400,
     funded: 0,
     icon: <Anchor className="w-6 h-6" />,
     location: "Milos, Grecia",
     image:
-      "https://images.unsplash.com/photo-1534190760961-74e8c1c5c3da?w=600&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1534854638093-bada1813ca19?w=600&h=400&fit=crop",
   },
   {
     id: "hotel-positano",
@@ -191,8 +174,8 @@ const GIFTS: GiftItem[] = [
     id: "upgrade-habitacion",
     title: "Upgrade de habitación",
     description:
-      "Mejorar a una habitación con jacuzzi privado, terraza panorámica o suite premium en cualquier destino.",
-    totalPrice: 100,
+      "Mejorar a una habitación con terraza panorámica o suite con mejores vistas en cualquier destino.",
+    totalPrice: 300,
     funded: 0,
     icon: <Crown className="w-6 h-6" />,
     location: "Cualquier destino",
@@ -215,20 +198,20 @@ const GIFTS: GiftItem[] = [
     id: "chevre-dor",
     title: "Road trip & cena en Le Chèvre d'Or",
     description:
-      "Ruta panorámica por la Riviera Francesa hasta Èze, con cena en el restaurante con estrella Michelin Le Chèvre d'Or.",
-    totalPrice: 350,
+      "Ruta panorámica por la Riviera Francesa hasta Èze, con cena en el restaurante Le Chèvre d'Or.",
+    totalPrice: 400,
     funded: 0,
     icon: <UtensilsCrossed className="w-6 h-6" />,
     location: "Èze, Francia",
     image:
-      "https://images.unsplash.com/photo-1537799943037-f5da89a65689?w=600&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=600&h=400&fit=crop",
   },
   {
     id: "hotel-mallorca",
     title: "2 noches de hotel en Mallorca",
     description:
       "Hotel en la isla más grande de las Baleares, con calas de agua cristalina y montañas de la Serra de Tramuntana.",
-    totalPrice: 700,
+    totalPrice: 800,
     funded: 0,
     icon: <Hotel className="w-6 h-6" />,
     location: "Mallorca, España",
@@ -245,7 +228,7 @@ const GIFTS: GiftItem[] = [
     icon: <Car className="w-6 h-6" />,
     location: "Mallorca, España",
     image:
-      "https://images.unsplash.com/photo-1512100356356-de1b84283e18?w=600&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1591167091400-0a5c22b60e9f?w=600&h=400&fit=crop",
   },
   {
     id: "hotel-formentera",
@@ -260,11 +243,11 @@ const GIFTS: GiftItem[] = [
       "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=600&h=400&fit=crop",
   },
   {
-    id: "barca-formentera",
-    title: "Día en barca por calas secretas",
+    id: "buceo-formentera",
+    title: "Día de buceo en Formentera",
     description:
-      "Alquilar una barca propia para explorar las calas escondidas y aguas cristalinas de Formentera.",
-    totalPrice: 200,
+      "Inmersión guiada para dos en las aguas cristalinas de Formentera, descubriendo la vida marina del Mediterráneo.",
+    totalPrice: 300,
     funded: 0,
     icon: <Waves className="w-6 h-6" />,
     location: "Formentera, España",
@@ -272,23 +255,23 @@ const GIFTS: GiftItem[] = [
       "https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=600&h=400&fit=crop",
   },
   {
-    id: "juan-y-andrea",
-    title: "Almuerzo en Juan y Andrea",
+    id: "cena-cala-di-volpe",
+    title: "Cena en la Costa Esmeralda",
     description:
-      "Almuerzo en el mítico restaurante de playa Juan y Andrea en Formentera. Pescado fresco, paella y los pies en la arena.",
-    totalPrice: 180,
+      "Cena frente al mar en la Costa Esmeralda de Cerdeña. Cocina sarda, mariscos y atardecer sobre el Mediterráneo.",
+    totalPrice: 400,
     funded: 0,
-    icon: <Sun className="w-6 h-6" />,
-    location: "Formentera, España",
+    icon: <UtensilsCrossed className="w-6 h-6" />,
+    location: "Cerdeña, Italia",
     image:
-      "https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?w=600&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=600&h=400&fit=crop",
   },
-  /* ── 10 NUEVAS EXPERIENCIAS IMPERDIBLES ── */
+  /* ── 10 EXPERIENCIAS IMPERDIBLES ── */
   {
     id: "acropolis-atenas",
     title: "Atardecer en la Acrópolis de Atenas",
     description:
-      "Tour privado por la Acrópolis y el Partenón al atardecer, con guía en español y vistas a toda Atenas.",
+      "Tour por la Acrópolis y el Partenón al atardecer, con guía en español y vistas a toda Atenas.",
     totalPrice: 400,
     funded: 0,
     icon: <Camera className="w-6 h-6" />,
@@ -301,7 +284,7 @@ const GIFTS: GiftItem[] = [
     title: "Clase de cocina italiana",
     description:
       "Aprender a hacer pasta fresca y tiramisú con un chef local en un pueblo de la Toscana. Almuerzo incluido.",
-    totalPrice: 350,
+    totalPrice: 400,
     funded: 0,
     icon: <UtensilsCrossed className="w-6 h-6" />,
     location: "Toscana, Italia",
@@ -309,22 +292,22 @@ const GIFTS: GiftItem[] = [
       "https://images.unsplash.com/photo-1556910103-1c02745aae4d?w=600&h=400&fit=crop",
   },
   {
-    id: "kayak-capri",
-    title: "Kayak por la costa de Capri",
+    id: "paseo-capri",
+    title: "Día en Capri y los Faraglioni",
     description:
-      "Recorrido en kayak por las grutas y acantilados de Capri, con parada para nadar en aguas turquesas.",
-    totalPrice: 300,
+      "Paseo en barco alrededor de los Faraglioni, visita a la Grotta Azzurra y recorrida por las callecitas de Capri.",
+    totalPrice: 400,
     funded: 0,
-    icon: <Waves className="w-6 h-6" />,
+    icon: <Anchor className="w-6 h-6" />,
     location: "Capri, Italia",
     image:
-      "https://images.unsplash.com/photo-1472745942893-4b9f730c7668?w=600&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1533606688076-b6683a5f59f1?w=600&h=400&fit=crop",
   },
   {
     id: "barco-amalfi",
     title: "Tour en barco por la Costa Amalfitana",
     description:
-      "Día completo navegando de Positano a Amalfi pasando por cuevas escondidas, con limoncello y lunch a bordo.",
+      "Día completo navegando de Positano a Amalfi pasando por cuevas escondidas, con almuerzo a bordo.",
     totalPrice: 500,
     funded: 0,
     icon: <Sailboat className="w-6 h-6" />,
@@ -333,22 +316,22 @@ const GIFTS: GiftItem[] = [
       "https://images.unsplash.com/photo-1516483638261-f4dbaf036963?w=600&h=400&fit=crop",
   },
   {
-    id: "flamenco-espana",
-    title: "Show de flamenco privado",
+    id: "guitarra-espana",
+    title: "Concierto de guitarra española",
     description:
-      "Noche de tablao flamenco con cena y vinos en un local íntimo. Arte, pasión y gastronomía española.",
+      "Noche de guitarra flamenca en vivo con cena y vinos en un local íntimo. Música, arte y gastronomía española.",
     totalPrice: 300,
     funded: 0,
     icon: <Sparkles className="w-6 h-6" />,
     location: "España",
     image:
-      "https://images.unsplash.com/photo-1551632811-561732d1e306?w=600&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1510915361894-db8b60106cb1?w=600&h=400&fit=crop",
   },
   {
     id: "buceo-mediterraneo",
     title: "Buceo en el Mediterráneo",
     description:
-      "Inmersión guiada para dos en aguas cristalinas, descubriendo fondos marinos con peces y corales.",
+      "Inmersión guiada para dos en aguas cristalinas, descubriendo fondos marinos y vida submarina.",
     totalPrice: 400,
     funded: 0,
     icon: <Anchor className="w-6 h-6" />,
@@ -378,13 +361,13 @@ const GIFTS: GiftItem[] = [
     icon: <MapPin className="w-6 h-6" />,
     location: "Cinque Terre, Italia",
     image:
-      "https://images.unsplash.com/photo-1516483638261-f4dbaf036963?w=600&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1514890547357-a9ee288728e0?w=600&h=400&fit=crop",
   },
   {
     id: "ibiza-sunset",
-    title: "Atardecer VIP en Ibiza",
+    title: "Atardecer en Ibiza",
     description:
-      "Sesión de DJ al atardecer en un beach club exclusivo de Ibiza, con cena y champagne con vista al mar.",
+      "Atardecer frente al mar en un beach club de Ibiza, con cena y música con vista al Mediterráneo.",
     totalPrice: 500,
     funded: 0,
     icon: <Sun className="w-6 h-6" />,
@@ -478,6 +461,7 @@ const NOTIFICATION_EMAIL = "karinavrossini@gmail.com";
 /* ───────────────────────────── COMPONENTS ───────────────────────────── */
 
 type AppView = "home" | "gift-detail" | "thank-you";
+type GiftStep = 1 | 2 | 3; // 1=form, 2=bank info, 3=notify
 
 function GiftCard({
   gift,
@@ -650,21 +634,27 @@ function saveContributions(c: Record<string, number>) {
 export default function App() {
   const [view, setView] = useState<AppView>("home");
   const [selectedGift, setSelectedGift] = useState<GiftItem | null>(null);
-  const [showBankModal, setShowBankModal] = useState(false);
   const [contributionAmount, setContributionAmount] = useState("");
   const [selectedCurrency, setSelectedCurrency] = useState("USD");
   const [guestName, setGuestName] = useState("");
   const [guestEmail, setGuestEmail] = useState("");
   const [guestMessage, setGuestMessage] = useState("");
   const [contributions, setContributions] = useState<Record<string, number>>(loadContributions);
-  const [transferConfirmed, setTransferConfirmed] = useState(false);
+  const [giftStep, setGiftStep] = useState<GiftStep>(1);
   const giftsRef = useRef<HTMLDivElement>(null);
+  const stepRef = useRef<HTMLDivElement>(null);
 
   // Helper to get total funded for a gift
   const getFunded = (gift: GiftItem) => gift.funded + (contributions[gift.id] || 0);
 
   const scrollToGifts = () => {
     giftsRef.current?.scrollIntoView({ behavior: "smooth" });
+  };
+
+  const scrollToStep = () => {
+    setTimeout(() => {
+      stepRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+    }, 100);
   };
 
   const handleSelectGift = (gift: GiftItem) => {
@@ -674,27 +664,26 @@ export default function App() {
     setGuestName("");
     setGuestEmail("");
     setGuestMessage("");
-    setTransferConfirmed(false);
+    setGiftStep(1);
     setView("gift-detail");
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
-  const handleShowBankInfo = () => {
+  const handleGoToStep2 = () => {
     if (!guestName.trim() || !guestEmail.trim() || !contributionAmount) return;
-    setTransferConfirmed(false);
-    setShowBankModal(true);
+    setGiftStep(2);
+    scrollToStep();
   };
 
   const handleConfirmTransfer = () => {
     if (!selectedGift) return;
-    // For USD contributions, add directly. For other currencies we still record in USD equivalent (approximate).
-    // Since the gifts track in USD, we record the amount as-is for simplicity.
     const amount = Number(contributionAmount) || 0;
     const newContributions = { ...contributions };
     newContributions[selectedGift.id] = (newContributions[selectedGift.id] || 0) + amount;
     setContributions(newContributions);
     saveContributions(newContributions);
-    setTransferConfirmed(true);
+    setGiftStep(3);
+    scrollToStep();
   };
 
   const currencySymbol = selectedCurrency === "ARS" ? "ARS" : selectedCurrency === "MXN" ? "MXN" : "USD";
@@ -708,14 +697,12 @@ export default function App() {
 
   const handleWhatsAppKari = () => {
     window.open(`https://wa.me/${WHATSAPP_KARI}?text=${buildWhatsAppMsg()}`, "_blank");
-    setShowBankModal(false);
     setView("thank-you");
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   const handleWhatsAppJuan = () => {
     window.open(`https://wa.me/${WHATSAPP_JUAN}?text=${buildWhatsAppMsg()}`, "_blank");
-    setShowBankModal(false);
     setView("thank-you");
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
@@ -728,7 +715,6 @@ export default function App() {
       `${currencySymbol} ${contributionAmount}`,
       guestMessage.trim()
     );
-    setShowBankModal(false);
     setView("thank-you");
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
@@ -794,10 +780,12 @@ export default function App() {
     };
     const quickAmounts = (quickAmountsByCurrency[selectedCurrency] || quickAmountsByCurrency.USD);
 
+    const stepLabels = ["Monto y datos", "Transferir", "Avisar"];
+
     return (
-      <div className="min-h-screen">
+      <div className="min-h-screen pb-28">
         {/* Header image */}
-        <div className="relative h-64 md:h-80 overflow-hidden">
+        <div className="relative h-56 md:h-72 overflow-hidden">
           <img
             src={selectedGift.image}
             alt={selectedGift.title}
@@ -823,259 +811,332 @@ export default function App() {
           </div>
         </div>
 
-        <div className="max-w-2xl mx-auto px-4 py-8 space-y-8">
-          {/* Description */}
-          <p className="text-muted-foreground text-lg leading-relaxed">
-            {selectedGift.description}
-          </p>
-
-          {/* Progress */}
-          <div className="space-y-3 bg-white p-5 rounded-lg border">
-            <div className="flex justify-between text-sm">
-              <span>
-                Recaudado:{" "}
-                <span className="font-semibold">
-                  USD {totalFunded.toLocaleString()}
-                </span>
-              </span>
-              <span>
-                Meta:{" "}
-                <span className="font-semibold">
-                  USD {selectedGift.totalPrice.toLocaleString()}
-                </span>
-              </span>
-            </div>
-            <Progress value={percent} className="h-3" />
-            <p className="text-sm text-muted-foreground">
-              Faltan{" "}
-              <span className="font-semibold text-foreground">
-                USD {remaining.toLocaleString()}
-              </span>{" "}
-              para completar esta experiencia
-            </p>
-          </div>
-
-          <Separator />
-
-          {/* Contribution form */}
-          <div className="space-y-5">
-            <h2 className="text-2xl font-semibold">¿Cuánto querés aportar?</h2>
-
-            {/* Currency selector */}
-            <div className="space-y-1.5">
-              <Label className="text-sm">Elegí tu moneda</Label>
-              <div className="flex flex-wrap gap-2">
-                {Object.entries(currencyLabels).map(([code, label]) => (
-                  <button
-                    key={code}
-                    onClick={() => {
-                      setSelectedCurrency(code);
-                      setContributionAmount("");
-                    }}
-                    className={`px-4 py-2 rounded-lg border text-sm font-medium transition-colors ${
-                      selectedCurrency === code
-                        ? "bg-[#84814E] text-white border-[#84814E]"
-                        : "bg-white hover:bg-muted border-border"
+        {/* Step indicator */}
+        <div className="max-w-2xl mx-auto px-4 pt-6 pb-2">
+          <div className="flex items-center justify-between">
+            {stepLabels.map((label, i) => {
+              const stepNum = (i + 1) as GiftStep;
+              const isActive = giftStep === stepNum;
+              const isDone = giftStep > stepNum;
+              return (
+                <div key={label} className="flex-1 flex flex-col items-center relative">
+                  {i > 0 && (
+                    <div
+                      className={`absolute top-4 right-1/2 w-full h-0.5 -translate-y-1/2 ${
+                        isDone || isActive ? "bg-[#84814E]" : "bg-border"
+                      }`}
+                    />
+                  )}
+                  <div
+                    className={`relative z-10 w-8 h-8 rounded-full flex items-center justify-center text-sm font-semibold transition-colors ${
+                      isDone
+                        ? "bg-[#84814E] text-white"
+                        : isActive
+                        ? "bg-[#84814E] text-white ring-4 ring-[#84814E]/20"
+                        : "bg-muted text-muted-foreground"
+                    }`}
+                  >
+                    {isDone ? <Check className="w-4 h-4" /> : stepNum}
+                  </div>
+                  <span
+                    className={`text-xs mt-1.5 font-medium ${
+                      isActive || isDone ? "text-[#84814E]" : "text-muted-foreground"
                     }`}
                   >
                     {label}
-                  </button>
-                ))}
-              </div>
-            </div>
-
-            {/* Quick amounts */}
-            <div className="flex flex-wrap gap-2">
-              {quickAmounts.map((amt) => (
-                <button
-                  key={amt}
-                  onClick={() => setContributionAmount(String(amt))}
-                  className={`px-5 py-2.5 rounded-lg border text-sm font-medium transition-colors ${
-                    contributionAmount === String(amt)
-                      ? "bg-[#ad4646] text-white border-[#ad4646]"
-                      : "bg-white hover:bg-muted border-border"
-                  }`}
-                >
-                  {selectedCurrency} {amt.toLocaleString()}
-                </button>
-              ))}
-            </div>
-
-            {/* Custom amount */}
-            <div className="space-y-1.5">
-              <Label htmlFor="custom-amount" className="text-sm">
-                O ingresá otro monto ({selectedCurrency})
-              </Label>
-              <Input
-                id="custom-amount"
-                type="number"
-                min={1}
-                value={contributionAmount}
-                onChange={(e) => setContributionAmount(e.target.value)}
-                placeholder={`Monto en ${selectedCurrency}`}
-                className="bg-white"
-              />
-            </div>
-
-            <Separator />
-
-            {/* Guest info */}
-            <h2 className="text-2xl font-semibold">Tus datos</h2>
-            <p className="text-sm text-muted-foreground -mt-3">
-              Para que sepamos quién nos regaló y podamos agradecerte.
-            </p>
-
-            <div className="grid gap-4 md:grid-cols-2">
-              <div className="space-y-1.5">
-                <Label htmlFor="guest-name">Nombre completo *</Label>
-                <Input
-                  id="guest-name"
-                  value={guestName}
-                  onChange={(e) => setGuestName(e.target.value)}
-                  placeholder="Tu nombre"
-                  className="bg-white"
-                />
-              </div>
-              <div className="space-y-1.5">
-                <Label htmlFor="guest-email">Email *</Label>
-                <Input
-                  id="guest-email"
-                  type="email"
-                  value={guestEmail}
-                  onChange={(e) => setGuestEmail(e.target.value)}
-                  placeholder="tu@email.com"
-                  className="bg-white"
-                />
-              </div>
-            </div>
-
-            <div className="space-y-1.5">
-              <Label htmlFor="guest-message">
-                Mensaje para los novios (opcional)
-              </Label>
-              <textarea
-                id="guest-message"
-                value={guestMessage}
-                onChange={(e) => setGuestMessage(e.target.value)}
-                placeholder="¡Felicidades! Disfruten su viaje..."
-                rows={3}
-                className="w-full rounded-md border border-input bg-white px-3 py-2 text-sm placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
-              />
-            </div>
-
-            <Button
-              size="lg"
-              className="w-full bg-[#ad4646] hover:bg-[#963c3c] text-white text-base gap-2"
-              onClick={handleShowBankInfo}
-              disabled={
-                !guestName.trim() ||
-                !guestEmail.trim() ||
-                !contributionAmount ||
-                Number(contributionAmount) <= 0
-              }
-            >
-              Ver datos para transferir
-              <ChevronDown className="w-4 h-4" />
-            </Button>
+                  </span>
+                </div>
+              );
+            })}
           </div>
         </div>
 
-        {/* Bank info modal */}
-        <Dialog open={showBankModal} onOpenChange={setShowBankModal}>
-          <DialogContent className="max-w-lg max-h-[90vh] overflow-y-auto">
-            <DialogHeader>
-              <DialogTitle className="text-2xl">
-                Datos para transferir
-              </DialogTitle>
-            </DialogHeader>
-            <p className="text-sm text-muted-foreground">
-              Elegí la cuenta que te quede más cómoda. Estás
-              aportando{" "}
-              <span className="font-semibold text-foreground">
-                {selectedCurrency} {Number(contributionAmount).toLocaleString()}
-              </span>{" "}
-              para <span className="italic">{selectedGift.title}</span>.
-            </p>
+        <div ref={stepRef} className="max-w-2xl mx-auto px-4 py-6 space-y-6">
+          {/* ─── STEP 1: Amount + Guest info ─── */}
+          {giftStep === 1 && (
+            <>
+              <p className="text-muted-foreground text-lg leading-relaxed">
+                {selectedGift.description}
+              </p>
 
-            <div className="space-y-4 mt-2">
-              {[...BANK_ACCOUNTS]
-                .sort((a, b) => {
-                  // Priority order for matching currency
-                  const priority = (acc: BankAccount) => {
-                    if (acc.currencyCode !== selectedCurrency) return 3;
-                    if (acc.flag === "🇺🇸") return 0;
-                    if (acc.flag === "🇦🇷" && acc.currencyCode === "USD") return 1;
-                    return 0;
-                  };
-                  return priority(a) - priority(b);
-                })
-                .map((acc, i) => (
-                  <div
-                    key={`${acc.currencyCode}-${i}`}
-                    className={acc.currencyCode === selectedCurrency ? "ring-2 ring-[#84814E] rounded-lg" : "opacity-50"}
-                  >
-                    <BankAccountCard account={acc} />
-                  </div>
-                ))}
-            </div>
-
-            <Separator className="my-2" />
-
-            {!transferConfirmed ? (
-              <>
+              {/* Progress */}
+              <div className="space-y-3 bg-white p-5 rounded-lg border">
+                <div className="flex justify-between text-sm">
+                  <span>
+                    Recaudado:{" "}
+                    <span className="font-semibold">
+                      USD {totalFunded.toLocaleString()}
+                    </span>
+                  </span>
+                  <span>
+                    Meta:{" "}
+                    <span className="font-semibold">
+                      USD {selectedGift.totalPrice.toLocaleString()}
+                    </span>
+                  </span>
+                </div>
+                <Progress value={percent} className="h-3" />
                 <p className="text-sm text-muted-foreground">
-                  Una vez que hayas hecho la transferencia, confirmalo acá abajo.
+                  Faltan{" "}
+                  <span className="font-semibold text-foreground">
+                    USD {remaining.toLocaleString()}
+                  </span>{" "}
+                  para completar esta experiencia
                 </p>
+              </div>
+
+              <Separator />
+
+              <div className="space-y-5">
+                <h2 className="text-2xl font-semibold">¿Cuánto querés aportar?</h2>
+
+                {/* Currency selector */}
+                <div className="space-y-1.5">
+                  <Label className="text-sm">Elegí tu moneda</Label>
+                  <div className="flex flex-wrap gap-2">
+                    {Object.entries(currencyLabels).map(([code, label]) => (
+                      <button
+                        key={code}
+                        onClick={() => {
+                          setSelectedCurrency(code);
+                          setContributionAmount("");
+                        }}
+                        className={`px-4 py-2 rounded-lg border text-sm font-medium transition-colors ${
+                          selectedCurrency === code
+                            ? "bg-[#84814E] text-white border-[#84814E]"
+                            : "bg-white hover:bg-muted border-border"
+                        }`}
+                      >
+                        {label}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Quick amounts */}
+                <div className="flex flex-wrap gap-2">
+                  {quickAmounts.map((amt) => (
+                    <button
+                      key={amt}
+                      onClick={() => setContributionAmount(String(amt))}
+                      className={`px-5 py-2.5 rounded-lg border text-sm font-medium transition-colors ${
+                        contributionAmount === String(amt)
+                          ? "bg-[#ad4646] text-white border-[#ad4646]"
+                          : "bg-white hover:bg-muted border-border"
+                      }`}
+                    >
+                      {selectedCurrency} {amt.toLocaleString()}
+                    </button>
+                  ))}
+                </div>
+
+                {/* Custom amount */}
+                <div className="space-y-1.5">
+                  <Label htmlFor="custom-amount" className="text-sm">
+                    O ingresá otro monto ({selectedCurrency})
+                  </Label>
+                  <Input
+                    id="custom-amount"
+                    type="number"
+                    min={1}
+                    value={contributionAmount}
+                    onChange={(e) => setContributionAmount(e.target.value)}
+                    placeholder={`Monto en ${selectedCurrency}`}
+                    className="bg-white"
+                  />
+                </div>
+
+                <Separator />
+
+                {/* Guest info */}
+                <h2 className="text-2xl font-semibold">Tus datos</h2>
+                <p className="text-sm text-muted-foreground -mt-3">
+                  Para que sepamos quién nos regaló y podamos agradecerte.
+                </p>
+
+                <div className="grid gap-4 md:grid-cols-2">
+                  <div className="space-y-1.5">
+                    <Label htmlFor="guest-name">Nombre completo *</Label>
+                    <Input
+                      id="guest-name"
+                      value={guestName}
+                      onChange={(e) => setGuestName(e.target.value)}
+                      placeholder="Tu nombre"
+                      className="bg-white"
+                    />
+                  </div>
+                  <div className="space-y-1.5">
+                    <Label htmlFor="guest-email">Email *</Label>
+                    <Input
+                      id="guest-email"
+                      type="email"
+                      value={guestEmail}
+                      onChange={(e) => setGuestEmail(e.target.value)}
+                      placeholder="tu@email.com"
+                      className="bg-white"
+                    />
+                  </div>
+                </div>
+
+                <div className="space-y-1.5">
+                  <Label htmlFor="guest-message">
+                    Mensaje para los novios (opcional)
+                  </Label>
+                  <textarea
+                    id="guest-message"
+                    value={guestMessage}
+                    onChange={(e) => setGuestMessage(e.target.value)}
+                    placeholder="¡Felicidades! Disfruten su viaje..."
+                    rows={3}
+                    className="w-full rounded-md border border-input bg-white px-3 py-2 text-sm placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                  />
+                </div>
+              </div>
+            </>
+          )}
+
+          {/* ─── STEP 2: Bank accounts ─── */}
+          {giftStep === 2 && (
+            <>
+              <div className="bg-white border rounded-lg p-4">
+                <p className="text-sm text-muted-foreground">
+                  Estás aportando{" "}
+                  <span className="font-semibold text-foreground">
+                    {selectedCurrency} {Number(contributionAmount).toLocaleString()}
+                  </span>{" "}
+                  para <span className="italic font-medium text-foreground">{selectedGift.title}</span>
+                </p>
+              </div>
+
+              <h2 className="text-2xl font-semibold">Elegí una cuenta y transferí</h2>
+              <p className="text-sm text-muted-foreground -mt-4">
+                Usá la cuenta que te quede más cómoda. Podés copiar cada dato tocándolo.
+              </p>
+
+              <div className="space-y-4">
+                {[...BANK_ACCOUNTS]
+                  .sort((a, b) => {
+                    const priority = (acc: BankAccount) => {
+                      if (acc.currencyCode !== selectedCurrency) return 3;
+                      if (acc.flag === "🇺🇸") return 0;
+                      if (acc.flag === "🇦🇷" && acc.currencyCode === "USD") return 1;
+                      return 0;
+                    };
+                    return priority(a) - priority(b);
+                  })
+                  .map((acc, i) => (
+                    <div
+                      key={`${acc.currencyCode}-${i}`}
+                      className={acc.currencyCode === selectedCurrency ? "ring-2 ring-[#84814E] rounded-lg" : "opacity-50"}
+                    >
+                      <BankAccountCard account={acc} />
+                    </div>
+                  ))}
+              </div>
+
+              <button
+                onClick={() => setGiftStep(1)}
+                className="text-sm text-muted-foreground hover:text-foreground flex items-center gap-1 transition-colors"
+              >
+                <ArrowLeft className="w-3.5 h-3.5" />
+                Volver a editar monto o datos
+              </button>
+            </>
+          )}
+
+          {/* ─── STEP 3: Notify ─── */}
+          {giftStep === 3 && (
+            <div className="text-center space-y-6 py-4">
+              <div className="bg-green-50 border border-green-200 rounded-xl p-6">
+                <div className="text-4xl mb-3">🎉</div>
+                <h2 className="text-2xl font-semibold text-green-800 mb-1">
+                  ¡Transferencia registrada!
+                </h2>
+                <p className="text-green-700 text-sm">
+                  Gracias por tu aporte de{" "}
+                  <span className="font-semibold">
+                    {selectedCurrency} {Number(contributionAmount).toLocaleString()}
+                  </span>{" "}
+                  para <span className="italic">{selectedGift.title}</span>.
+                </p>
+              </div>
+
+              <div className="space-y-3">
+                <h3 className="text-xl font-semibold">
+                  Último paso: avisanos por WhatsApp o email
+                </h3>
+                <p className="text-sm text-muted-foreground max-w-md mx-auto">
+                  Así sabemos que ya hiciste la transferencia y podemos agradecerte.
+                </p>
+              </div>
+
+              <div className="space-y-3 max-w-sm mx-auto">
                 <Button
                   size="lg"
-                  className="w-full bg-[#ad4646] hover:bg-[#963c3c] text-white gap-2 text-base"
-                  onClick={handleConfirmTransfer}
+                  className="w-full bg-[#25D366] hover:bg-[#20bd5a] text-white gap-2 text-base h-14"
+                  onClick={handleWhatsAppKari}
                 >
-                  <Check className="w-5 h-5" />
-                  Ya realicé la transferencia
+                  <Send className="w-5 h-5" />
+                  WhatsApp a Kari
                 </Button>
-              </>
-            ) : (
-              <>
-                <div className="bg-green-50 border border-green-200 rounded-lg p-3 text-center">
-                  <p className="text-green-700 font-medium text-sm">
-                    ✓ ¡Transferencia registrada! Gracias por tu aporte.
-                  </p>
-                </div>
-                <p className="text-sm text-muted-foreground">
-                  Ahora avisanos para que lo sepamos:
-                </p>
-                <div className="space-y-2">
-                  <Button
-                    size="lg"
-                    className="w-full bg-[#25D366] hover:bg-[#20bd5a] text-white gap-2 text-base"
-                    onClick={handleWhatsAppKari}
-                  >
-                    <Send className="w-5 h-5" />
-                    WhatsApp a Kari
-                  </Button>
-                  <Button
-                    size="lg"
-                    className="w-full bg-[#25D366] hover:bg-[#20bd5a] text-white gap-2 text-base"
-                    onClick={handleWhatsAppJuan}
-                  >
-                    <Send className="w-5 h-5" />
-                    WhatsApp a Juan
-                  </Button>
-                  <Button
-                    size="lg"
-                    variant="outline"
-                    className="w-full gap-2 text-base"
-                    onClick={handleEmail}
-                  >
-                    <Mail className="w-5 h-5" />
-                    Enviar por Email
-                  </Button>
-                </div>
-              </>
-            )}
-          </DialogContent>
-        </Dialog>
+                <Button
+                  size="lg"
+                  className="w-full bg-[#25D366] hover:bg-[#20bd5a] text-white gap-2 text-base h-14"
+                  onClick={handleWhatsAppJuan}
+                >
+                  <Send className="w-5 h-5" />
+                  WhatsApp a Juan
+                </Button>
+                <Button
+                  size="lg"
+                  variant="outline"
+                  className="w-full gap-2 text-base h-14"
+                  onClick={handleEmail}
+                >
+                  <Mail className="w-5 h-5" />
+                  Enviar por Email
+                </Button>
+              </div>
+            </div>
+          )}
+        </div>
+
+        {/* ─── Sticky bottom CTA ─── */}
+        {giftStep === 1 && (
+          <div className="fixed bottom-0 left-0 right-0 bg-white/95 backdrop-blur-sm border-t shadow-lg p-4 z-50">
+            <div className="max-w-2xl mx-auto">
+              <Button
+                size="lg"
+                className="w-full bg-[#ad4646] hover:bg-[#963c3c] text-white text-base gap-2 h-14"
+                onClick={handleGoToStep2}
+                disabled={
+                  !guestName.trim() ||
+                  !guestEmail.trim() ||
+                  !contributionAmount ||
+                  Number(contributionAmount) <= 0
+                }
+              >
+                Ver datos para transferir
+                <ArrowLeft className="w-4 h-4 rotate-180" />
+              </Button>
+            </div>
+          </div>
+        )}
+
+        {giftStep === 2 && (
+          <div className="fixed bottom-0 left-0 right-0 bg-white/95 backdrop-blur-sm border-t shadow-lg p-4 z-50">
+            <div className="max-w-2xl mx-auto">
+              <Button
+                size="lg"
+                className="w-full bg-[#ad4646] hover:bg-[#963c3c] text-white gap-2 text-base h-14"
+                onClick={handleConfirmTransfer}
+              >
+                <Check className="w-5 h-5" />
+                Ya realicé la transferencia
+              </Button>
+            </div>
+          </div>
+        )}
       </div>
     );
   }
