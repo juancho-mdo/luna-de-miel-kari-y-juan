@@ -60,7 +60,7 @@ const GIFTS: GiftItem[] = [
     icon: <Plane className="w-6 h-6" />,
     location: "CDMX → Europa",
     image:
-      "https://images.unsplash.com/photo-1436491865332-7a61a109db05?w=600&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1569154941061-e231b4725ef1?w=600&h=400&fit=crop",
   },
   {
     id: "traslados",
@@ -132,7 +132,7 @@ const GIFTS: GiftItem[] = [
     icon: <Sparkles className="w-6 h-6" />,
     location: "Mediterráneo",
     image:
-      "https://images.unsplash.com/photo-1600334129128-685c5582fd35?w=600&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1544161515-4ab6ce6db874?w=600&h=400&fit=crop",
   },
   {
     id: "hotel-milos",
@@ -192,7 +192,7 @@ const GIFTS: GiftItem[] = [
     icon: <Hotel className="w-6 h-6" />,
     location: "Antibes, Francia",
     image:
-      "https://images.unsplash.com/photo-1533929736458-ca588d08c8be?w=600&h=400&fit=crop",
+      "https://images.pexels.com/photos/32486469/pexels-photo-32486469.jpeg?auto=compress&cs=tinysrgb&w=800&h=530&fit=crop",
   },
   {
     id: "chevre-dor",
@@ -204,7 +204,7 @@ const GIFTS: GiftItem[] = [
     icon: <UtensilsCrossed className="w-6 h-6" />,
     location: "Èze, Francia",
     image:
-      "https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=600&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=600&h=400&fit=crop",
   },
   {
     id: "hotel-mallorca",
@@ -228,7 +228,7 @@ const GIFTS: GiftItem[] = [
     icon: <Car className="w-6 h-6" />,
     location: "Mallorca, España",
     image:
-      "https://images.unsplash.com/photo-1591167091400-0a5c22b60e9f?w=600&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1600240644455-3edc55c375fe?w=600&h=400&fit=crop",
   },
   {
     id: "hotel-formentera",
@@ -301,7 +301,7 @@ const GIFTS: GiftItem[] = [
     icon: <Anchor className="w-6 h-6" />,
     location: "Capri, Italia",
     image:
-      "https://images.unsplash.com/photo-1533606688076-b6683a5f59f1?w=600&h=400&fit=crop",
+      "https://images.pexels.com/photos/18782344/pexels-photo-18782344.jpeg?auto=compress&cs=tinysrgb&w=800&h=530&fit=crop",
   },
   {
     id: "barco-amalfi",
@@ -325,7 +325,7 @@ const GIFTS: GiftItem[] = [
     icon: <Sparkles className="w-6 h-6" />,
     location: "España",
     image:
-      "https://images.unsplash.com/photo-1510915361894-db8b60106cb1?w=600&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?w=600&h=400&fit=crop",
   },
   {
     id: "buceo-mediterraneo",
