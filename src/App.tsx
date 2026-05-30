@@ -55,7 +55,7 @@ const GIFTS: GiftItem[] = [
     title: "Vuelos México - Grecia",
     description:
       "Vuelos ida y vuelta desde Ciudad de México a Grecia para empezar nuestra aventura mediterránea.",
-    totalPrice: 2000,
+    totalPrice: 2500,
     funded: 0,
     icon: <Plane className="w-6 h-6" />,
     location: "México → Grecia",
@@ -67,7 +67,7 @@ const GIFTS: GiftItem[] = [
     title: "3 noches de hotel en Santorini",
     description:
       "Hotel con vista a la caldera volcánica, atardeceres en Oia y las casitas blancas con cúpulas azules.",
-    totalPrice: 1500,
+    totalPrice: 1700,
     funded: 0,
     icon: <Hotel className="w-6 h-6" />,
     location: "Santorini, Grecia",
@@ -115,7 +115,7 @@ const GIFTS: GiftItem[] = [
     title: "Recorrido en velero por Milos",
     description:
       "Recorrido en velero por las cuevas marinas, playas escondidas y formaciones rocosas de Milos.",
-    totalPrice: 400,
+    totalPrice: 470,
     funded: 0,
     icon: <Anchor className="w-6 h-6" />,
     location: "Milos, Grecia",
@@ -138,7 +138,7 @@ const GIFTS: GiftItem[] = [
     title: "2 noches en Creta",
     description:
       "La isla más grande de Grecia: playas de Elafonisi, gargantas de Samariá y la mejor cocina griega tradicional.",
-    totalPrice: 800,
+    totalPrice: 950,
     funded: 0,
     icon: <Hotel className="w-6 h-6" />,
     location: "Creta, Grecia",
@@ -162,7 +162,7 @@ const GIFTS: GiftItem[] = [
     title: "Día en Capri y los Faraglioni",
     description:
       "Paseo en barco alrededor de los Faraglioni, visita a la Grotta Azzurra y recorrida por las callecitas de Capri.",
-    totalPrice: 400,
+    totalPrice: 650,
     funded: 0,
     icon: <Anchor className="w-6 h-6" />,
     location: "Capri, Italia",
@@ -185,7 +185,7 @@ const GIFTS: GiftItem[] = [
     title: "Clase de cocina italiana con la Nonna",
     description:
       "Aprender a hacer pasta fresca y tiramisú con un chef local en un pueblo de la Toscana. Almuerzo incluido.",
-    totalPrice: 400,
+    totalPrice: 300,
     funded: 0,
     icon: <UtensilsCrossed className="w-6 h-6" />,
     location: "Toscana, Italia",
@@ -196,7 +196,7 @@ const GIFTS: GiftItem[] = [
     title: "Wine tour en Italia",
     description:
       "Un día recorriendo viñedos de la Toscana, degustando Chianti y Brunello con vista a los cipreses.",
-    totalPrice: 300,
+    totalPrice: 400,
     funded: 0,
     icon: <Wine className="w-6 h-6" />,
     location: "Toscana, Italia",
@@ -213,6 +213,28 @@ const GIFTS: GiftItem[] = [
     icon: <MapPin className="w-6 h-6" />,
     location: "Cinque Terre, Italia",
     image: `${import.meta.env.BASE_URL}images/cinque terre.jpg`,
+  },
+  {
+    id: "cenas-amalfi",
+    title: "Cenas en costa de Amalfi",
+    description:
+      "Cenas con vista al mar en la Costa Amalfitana, disfrutando la mejor cocina del sur de Italia.",
+    totalPrice: 500,
+    funded: 0,
+    icon: <UtensilsCrossed className="w-6 h-6" />,
+    location: "Costa Amalfitana, Italia",
+    image: `${import.meta.env.BASE_URL}images/cena amalfi.jpg`,
+  },
+  {
+    id: "grotta-palazzese",
+    title: "Cena en Ristorante Grotta Palazzese",
+    description:
+      "Cena dentro de una cueva natural sobre el mar en Polignano a Mare. Uno de los restaurantes más espectaculares del mundo.",
+    totalPrice: 550,
+    funded: 0,
+    icon: <UtensilsCrossed className="w-6 h-6" />,
+    location: "Italia",
+    image: `${import.meta.env.BASE_URL}images/gruta cena.jpg`,
   },
   {
     id: "cena-cala-di-volpe",
@@ -238,6 +260,17 @@ const GIFTS: GiftItem[] = [
     location: "Mallorca, España",
     image:
       "https://images.unsplash.com/photo-1566073771259-6a8506099945?w=600&h=400&fit=crop",
+  },
+  {
+    id: "catamaran-mallorca",
+    title: "Catamarán por Mallorca",
+    description:
+      "Día de navegación en catamarán por las calas más bonitas de Mallorca, con paradas para nadar y almuerzo a bordo.",
+    totalPrice: 450,
+    funded: 0,
+    icon: <Sailboat className="w-6 h-6" />,
+    location: "Mallorca, España",
+    image: `${import.meta.env.BASE_URL}images/catamaran.jpg`,
   },
   {
     id: "cenas-mallorca",
@@ -266,7 +299,7 @@ const GIFTS: GiftItem[] = [
     title: "Día de buceo en Formentera",
     description:
       "Inmersión guiada para dos en las aguas cristalinas de Formentera, descubriendo la vida marina del Mediterráneo.",
-    totalPrice: 300,
+    totalPrice: 550,
     funded: 0,
     icon: <Waves className="w-6 h-6" />,
     location: "Formentera, España",
@@ -289,7 +322,7 @@ const GIFTS: GiftItem[] = [
     title: "Noche de guitarra flamenca",
     description:
       "Noche de guitarra flamenca en vivo con cena y vinos en un local íntimo. Música, arte y gastronomía española.",
-    totalPrice: 300,
+    totalPrice: 200,
     funded: 0,
     icon: <Sparkles className="w-6 h-6" />,
     location: "España",
@@ -300,7 +333,7 @@ const GIFTS: GiftItem[] = [
     title: "2 noches en Menorca",
     description:
       "Hotel en la isla más tranquila de las Baleares, con playas vírgenes, calas turquesas y pueblos con encanto.",
-    totalPrice: 400,
+    totalPrice: 700,
     funded: 0,
     icon: <Hotel className="w-6 h-6" />,
     location: "Menorca, España",
@@ -323,7 +356,7 @@ const GIFTS: GiftItem[] = [
     title: "Traslados internos",
     description:
       "Ferrys entre islas griegas, trenes por Italia, autos de alquiler y traslados para movernos cómodos.",
-    totalPrice: 1000,
+    totalPrice: 2000,
     funded: 0,
     icon: <Car className="w-6 h-6" />,
     location: "Múltiples destinos",
@@ -334,18 +367,29 @@ const GIFTS: GiftItem[] = [
     title: "Día de Spa",
     description:
       "Un día de relax total con masajes, tratamientos y piscinas termales para los dos.",
-    totalPrice: 300,
+    totalPrice: 500,
     funded: 0,
     icon: <Sparkles className="w-6 h-6" />,
     location: "Cualquier destino",
     image: `${import.meta.env.BASE_URL}images/dia de spa.jpg`,
   },
   {
+    id: "upgrade-avion",
+    title: "Upgrade de avión",
+    description:
+      "Mejorar a clase ejecutiva o primera clase en alguno de nuestros vuelos para viajar más cómodos.",
+    totalPrice: 1300,
+    funded: 0,
+    icon: <Plane className="w-6 h-6" />,
+    location: "Cualquier destino",
+    image: `${import.meta.env.BASE_URL}images/primera clase.jpg`,
+  },
+  {
     id: "upgrade-habitacion",
-    title: "Upgrade de habitación",
+    title: "Upgrade de habitaciones",
     description:
       "Mejorar a una habitación con terraza panorámica o suite con mejores vistas en cualquier destino.",
-    totalPrice: 300,
+    totalPrice: 1500,
     funded: 0,
     icon: <Crown className="w-6 h-6" />,
     location: "Cualquier destino",
