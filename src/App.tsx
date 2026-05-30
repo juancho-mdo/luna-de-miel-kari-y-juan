@@ -50,29 +50,7 @@ interface GiftItem {
 }
 
 const GIFTS: GiftItem[] = [
-  {
-    id: "vuelos",
-    title: "Vuelos México - Grecia",
-    description:
-      "Vuelos ida y vuelta desde Ciudad de México a Grecia para empezar nuestra aventura mediterránea.",
-    totalPrice: 2000,
-    funded: 0,
-    icon: <Plane className="w-6 h-6" />,
-    location: "México → Grecia",
-    image: `${import.meta.env.BASE_URL}images/vuelvo mexico grecia.jpg`,
-  },
-  {
-    id: "traslados",
-    title: "Traslados & movilidad interna",
-    description:
-      "Ferrys entre islas griegas, trenes por Italia, autos de alquiler y traslados para movernos cómodos.",
-    totalPrice: 1000,
-    funded: 0,
-    icon: <Car className="w-6 h-6" />,
-    location: "Múltiples destinos",
-    image:
-      "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=600&h=400&fit=crop",
-  },
+  /* ── GRECIA ── */
   {
     id: "hotel-santorini",
     title: "3 noches de hotel en Santorini",
@@ -110,30 +88,6 @@ const GIFTS: GiftItem[] = [
       "https://images.unsplash.com/photo-1605281317010-fe5ffe798166?w=600&h=400&fit=crop",
   },
   {
-    id: "wine-tour",
-    title: "Wine tour en Italia",
-    description:
-      "Un día recorriendo viñedos de la Toscana, degustando Chianti y Brunello con vista a los cipreses.",
-    totalPrice: 300,
-    funded: 0,
-    icon: <Wine className="w-6 h-6" />,
-    location: "Toscana, Italia",
-    image:
-      "https://images.unsplash.com/photo-1506377247377-2a5b3b417ebb?w=600&h=400&fit=crop",
-  },
-  {
-    id: "spa",
-    title: "Día de Spa en pareja",
-    description:
-      "Un día de relax total con masajes, tratamientos y piscinas termales para los dos.",
-    totalPrice: 300,
-    funded: 0,
-    icon: <Sparkles className="w-6 h-6" />,
-    location: "Mediterráneo",
-    image:
-      "https://images.unsplash.com/photo-1544161515-4ab6ce6db874?w=600&h=400&fit=crop",
-  },
-  {
     id: "hotel-milos",
     title: "2 noches de hotel en Milos",
     description:
@@ -147,16 +101,40 @@ const GIFTS: GiftItem[] = [
   },
   {
     id: "barco-milos",
-    title: "Tour en barco por Milos",
+    title: "Recorrido en velero por Milos",
     description:
       "Recorrido en velero por las cuevas marinas, playas escondidas y formaciones rocosas de Milos.",
     totalPrice: 400,
     funded: 0,
     icon: <Anchor className="w-6 h-6" />,
     location: "Milos, Grecia",
-    image:
-      "https://images.unsplash.com/photo-1534854638093-bada1813ca19?w=600&h=400&fit=crop",
+    image: `${import.meta.env.BASE_URL}images/velero por milos.jpg`,
   },
+  {
+    id: "acropolis-atenas",
+    title: "Atardecer en la Acrópolis de Atenas",
+    description:
+      "Tour por la Acrópolis y el Partenón al atardecer, con guía en español y vistas a toda Atenas.",
+    totalPrice: 400,
+    funded: 0,
+    icon: <Camera className="w-6 h-6" />,
+    location: "Atenas, Grecia",
+    image:
+      "https://images.unsplash.com/photo-1555993539-1732b0258235?w=600&h=400&fit=crop",
+  },
+  {
+    id: "creta-aventura",
+    title: "2 noches en Creta",
+    description:
+      "La isla más grande de Grecia: playas de Elafonisi, gargantas de Samariá y la mejor cocina griega tradicional.",
+    totalPrice: 800,
+    funded: 0,
+    icon: <Hotel className="w-6 h-6" />,
+    location: "Creta, Grecia",
+    image:
+      "https://images.unsplash.com/photo-1586500036706-41963de24d8b?w=600&h=400&fit=crop",
+  },
+  /* ── ITALIA ── */
   {
     id: "hotel-positano",
     title: "Hotel en Positano",
@@ -170,41 +148,77 @@ const GIFTS: GiftItem[] = [
       "https://images.unsplash.com/photo-1533104816931-20fa691ff6ca?w=600&h=400&fit=crop",
   },
   {
-    id: "upgrade-habitacion",
-    title: "Upgrade de habitación",
+    id: "paseo-capri",
+    title: "Día en Capri y los Faraglioni",
     description:
-      "Mejorar a una habitación con terraza panorámica o suite con mejores vistas en cualquier destino.",
-    totalPrice: 300,
+      "Paseo en barco alrededor de los Faraglioni, visita a la Grotta Azzurra y recorrida por las callecitas de Capri.",
+    totalPrice: 400,
     funded: 0,
-    icon: <Crown className="w-6 h-6" />,
-    location: "Cualquier destino",
+    icon: <Anchor className="w-6 h-6" />,
+    location: "Capri, Italia",
     image:
-      "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=600&h=400&fit=crop",
+      "https://images.pexels.com/photos/18782344/pexels-photo-18782344.jpeg?auto=compress&cs=tinysrgb&w=800&h=530&fit=crop",
   },
   {
-    id: "hotel-antibes",
-    title: "2 noches de hotel en Antibes",
+    id: "barco-amalfi",
+    title: "Tour en barco por la Costa Amalfitana",
     description:
-      "Hotel en la Riviera Francesa, entre Niza y Cannes, con playas de aguas turquesas y pueblo medieval.",
-    totalPrice: 800,
+      "Día completo navegando de Positano a Amalfi pasando por cuevas escondidas, con almuerzo a bordo.",
+    totalPrice: 500,
     funded: 0,
-    icon: <Hotel className="w-6 h-6" />,
-    location: "Antibes, Francia",
+    icon: <Sailboat className="w-6 h-6" />,
+    location: "Costa Amalfitana, Italia",
     image:
-      "https://images.pexels.com/photos/32486469/pexels-photo-32486469.jpeg?auto=compress&cs=tinysrgb&w=800&h=530&fit=crop",
+      "https://images.unsplash.com/photo-1516483638261-f4dbaf036963?w=600&h=400&fit=crop",
   },
   {
-    id: "chevre-dor",
-    title: "Road trip & cena en Le Chèvre d'Or",
+    id: "clase-cocina-italia",
+    title: "Clase de cocina italiana con la Nonna",
     description:
-      "Ruta panorámica por la Riviera Francesa hasta Èze, con cena en el restaurante Le Chèvre d'Or.",
+      "Aprender a hacer pasta fresca y tiramisú con un chef local en un pueblo de la Toscana. Almuerzo incluido.",
     totalPrice: 400,
     funded: 0,
     icon: <UtensilsCrossed className="w-6 h-6" />,
-    location: "Èze, Francia",
-    image:
-      "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=600&h=400&fit=crop",
+    location: "Toscana, Italia",
+    image: `${import.meta.env.BASE_URL}images/cocina italiana.jpg`,
   },
+  {
+    id: "wine-tour",
+    title: "Wine tour en Italia",
+    description:
+      "Un día recorriendo viñedos de la Toscana, degustando Chianti y Brunello con vista a los cipreses.",
+    totalPrice: 300,
+    funded: 0,
+    icon: <Wine className="w-6 h-6" />,
+    location: "Toscana, Italia",
+    image:
+      "https://images.unsplash.com/photo-1506377247377-2a5b3b417ebb?w=600&h=400&fit=crop",
+  },
+  {
+    id: "cinque-terre",
+    title: "Día en Cinque Terre",
+    description:
+      "Tren panorámico entre los cinco pueblos coloridos de la costa de Liguria, con focaccia y pesto genovés.",
+    totalPrice: 400,
+    funded: 0,
+    icon: <MapPin className="w-6 h-6" />,
+    location: "Cinque Terre, Italia",
+    image:
+      "https://images.unsplash.com/photo-1514890547357-a9ee288728e0?w=600&h=400&fit=crop",
+  },
+  {
+    id: "cena-cala-di-volpe",
+    title: "Cena en la Costa Esmeralda",
+    description:
+      "Cena frente al mar en la Costa Esmeralda de Cerdeña. Cocina sarda, mariscos y atardecer sobre el Mediterráneo.",
+    totalPrice: 400,
+    funded: 0,
+    icon: <UtensilsCrossed className="w-6 h-6" />,
+    location: "Cerdeña, Italia",
+    image:
+      "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=600&h=400&fit=crop",
+  },
+  /* ── ESPAÑA ── */
   {
     id: "hotel-mallorca",
     title: "2 noches de hotel en Mallorca",
@@ -254,65 +268,16 @@ const GIFTS: GiftItem[] = [
       "https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=600&h=400&fit=crop",
   },
   {
-    id: "cena-cala-di-volpe",
-    title: "Cena en la Costa Esmeralda",
+    id: "ibiza-sunset",
+    title: "Atardecer en Ibiza",
     description:
-      "Cena frente al mar en la Costa Esmeralda de Cerdeña. Cocina sarda, mariscos y atardecer sobre el Mediterráneo.",
-    totalPrice: 400,
-    funded: 0,
-    icon: <UtensilsCrossed className="w-6 h-6" />,
-    location: "Cerdeña, Italia",
-    image:
-      "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=600&h=400&fit=crop",
-  },
-  /* ── 10 EXPERIENCIAS IMPERDIBLES ── */
-  {
-    id: "acropolis-atenas",
-    title: "Atardecer en la Acrópolis de Atenas",
-    description:
-      "Tour por la Acrópolis y el Partenón al atardecer, con guía en español y vistas a toda Atenas.",
-    totalPrice: 400,
-    funded: 0,
-    icon: <Camera className="w-6 h-6" />,
-    location: "Atenas, Grecia",
-    image:
-      "https://images.unsplash.com/photo-1555993539-1732b0258235?w=600&h=400&fit=crop",
-  },
-  {
-    id: "clase-cocina-italia",
-    title: "Clase de cocina italiana",
-    description:
-      "Aprender a hacer pasta fresca y tiramisú con un chef local en un pueblo de la Toscana. Almuerzo incluido.",
-    totalPrice: 400,
-    funded: 0,
-    icon: <UtensilsCrossed className="w-6 h-6" />,
-    location: "Toscana, Italia",
-    image:
-      "https://images.unsplash.com/photo-1556910103-1c02745aae4d?w=600&h=400&fit=crop",
-  },
-  {
-    id: "paseo-capri",
-    title: "Día en Capri y los Faraglioni",
-    description:
-      "Paseo en barco alrededor de los Faraglioni, visita a la Grotta Azzurra y recorrida por las callecitas de Capri.",
-    totalPrice: 400,
-    funded: 0,
-    icon: <Anchor className="w-6 h-6" />,
-    location: "Capri, Italia",
-    image:
-      "https://images.pexels.com/photos/18782344/pexels-photo-18782344.jpeg?auto=compress&cs=tinysrgb&w=800&h=530&fit=crop",
-  },
-  {
-    id: "barco-amalfi",
-    title: "Tour en barco por la Costa Amalfitana",
-    description:
-      "Día completo navegando de Positano a Amalfi pasando por cuevas escondidas, con almuerzo a bordo.",
+      "Atardecer frente al mar en un beach club de Ibiza, con cena y música con vista al Mediterráneo.",
     totalPrice: 500,
     funded: 0,
-    icon: <Sailboat className="w-6 h-6" />,
-    location: "Costa Amalfitana, Italia",
+    icon: <Sun className="w-6 h-6" />,
+    location: "Ibiza, España",
     image:
-      "https://images.unsplash.com/photo-1516483638261-f4dbaf036963?w=600&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1504681869696-d977211a5f4c?w=600&h=400&fit=crop",
   },
   {
     id: "guitarra-espana",
@@ -326,6 +291,52 @@ const GIFTS: GiftItem[] = [
     image:
       "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?w=600&h=400&fit=crop",
   },
+  /* ── GENERAL ── */
+  {
+    id: "vuelos",
+    title: "Vuelos México - Grecia",
+    description:
+      "Vuelos ida y vuelta desde Ciudad de México a Grecia para empezar nuestra aventura mediterránea.",
+    totalPrice: 2000,
+    funded: 0,
+    icon: <Plane className="w-6 h-6" />,
+    location: "México → Grecia",
+    image: `${import.meta.env.BASE_URL}images/vuelvo mexico grecia.jpg`,
+  },
+  {
+    id: "traslados",
+    title: "Traslados internos",
+    description:
+      "Ferrys entre islas griegas, trenes por Italia, autos de alquiler y traslados para movernos cómodos.",
+    totalPrice: 1000,
+    funded: 0,
+    icon: <Car className="w-6 h-6" />,
+    location: "Múltiples destinos",
+    image: `${import.meta.env.BASE_URL}images/en moto por italia.jpg`,
+  },
+  {
+    id: "spa",
+    title: "Día de Spa",
+    description:
+      "Un día de relax total con masajes, tratamientos y piscinas termales para los dos.",
+    totalPrice: 300,
+    funded: 0,
+    icon: <Sparkles className="w-6 h-6" />,
+    location: "Cualquier destino",
+    image: `${import.meta.env.BASE_URL}images/dia de spa.jpg`,
+  },
+  {
+    id: "upgrade-habitacion",
+    title: "Upgrade de habitación",
+    description:
+      "Mejorar a una habitación con terraza panorámica o suite con mejores vistas en cualquier destino.",
+    totalPrice: 300,
+    funded: 0,
+    icon: <Crown className="w-6 h-6" />,
+    location: "Cualquier destino",
+    image:
+      "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=600&h=400&fit=crop",
+  },
   {
     id: "buceo-mediterraneo",
     title: "Buceo en el Mediterráneo",
@@ -337,42 +348,6 @@ const GIFTS: GiftItem[] = [
     location: "Grecia o España",
     image:
       "https://images.unsplash.com/photo-1544551763-77932985c982?w=600&h=400&fit=crop",
-  },
-  {
-    id: "creta-aventura",
-    title: "2 noches en Creta",
-    description:
-      "La isla más grande de Grecia: playas de Elafonisi, gargantas de Samariá y la mejor cocina griega tradicional.",
-    totalPrice: 800,
-    funded: 0,
-    icon: <Hotel className="w-6 h-6" />,
-    location: "Creta, Grecia",
-    image:
-      "https://images.unsplash.com/photo-1586500036706-41963de24d8b?w=600&h=400&fit=crop",
-  },
-  {
-    id: "cinque-terre",
-    title: "Día en Cinque Terre",
-    description:
-      "Tren panorámico entre los cinco pueblos coloridos de la costa de Liguria, con focaccia y pesto genovés.",
-    totalPrice: 400,
-    funded: 0,
-    icon: <MapPin className="w-6 h-6" />,
-    location: "Cinque Terre, Italia",
-    image:
-      "https://images.unsplash.com/photo-1514890547357-a9ee288728e0?w=600&h=400&fit=crop",
-  },
-  {
-    id: "ibiza-sunset",
-    title: "Atardecer en Ibiza",
-    description:
-      "Atardecer frente al mar en un beach club de Ibiza, con cena y música con vista al Mediterráneo.",
-    totalPrice: 500,
-    funded: 0,
-    icon: <Sun className="w-6 h-6" />,
-    location: "Ibiza, España",
-    image:
-      "https://images.unsplash.com/photo-1504681869696-d977211a5f4c?w=600&h=400&fit=crop",
   },
   {
     id: "globo-capadocia",
