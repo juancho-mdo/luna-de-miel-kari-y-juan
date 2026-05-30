@@ -50,6 +50,17 @@ interface GiftItem {
 }
 
 const GIFTS: GiftItem[] = [
+  {
+    id: "vuelos",
+    title: "Vuelos México - Grecia",
+    description:
+      "Vuelos ida y vuelta desde Ciudad de México a Grecia para empezar nuestra aventura mediterránea.",
+    totalPrice: 2000,
+    funded: 0,
+    icon: <Plane className="w-6 h-6" />,
+    location: "México → Grecia",
+    image: `${import.meta.env.BASE_URL}images/vuelvo mexico grecia.jpg`,
+  },
   /* ── GRECIA ── */
   {
     id: "hotel-santorini",
@@ -131,8 +142,7 @@ const GIFTS: GiftItem[] = [
     funded: 0,
     icon: <Hotel className="w-6 h-6" />,
     location: "Creta, Grecia",
-    image:
-      "https://images.unsplash.com/photo-1586500036706-41963de24d8b?w=600&h=400&fit=crop",
+    image: `${import.meta.env.BASE_URL}images/noche creta grecia.jpg`,
   },
   /* ── ITALIA ── */
   {
@@ -156,8 +166,7 @@ const GIFTS: GiftItem[] = [
     funded: 0,
     icon: <Anchor className="w-6 h-6" />,
     location: "Capri, Italia",
-    image:
-      "https://images.pexels.com/photos/18782344/pexels-photo-18782344.jpeg?auto=compress&cs=tinysrgb&w=800&h=530&fit=crop",
+    image: `${import.meta.env.BASE_URL}images/paseo capri.jpg`,
   },
   {
     id: "barco-amalfi",
@@ -203,8 +212,7 @@ const GIFTS: GiftItem[] = [
     funded: 0,
     icon: <MapPin className="w-6 h-6" />,
     location: "Cinque Terre, Italia",
-    image:
-      "https://images.unsplash.com/photo-1514890547357-a9ee288728e0?w=600&h=400&fit=crop",
+    image: `${import.meta.env.BASE_URL}images/cinque terre.jpg`,
   },
   {
     id: "cena-cala-di-volpe",
@@ -232,16 +240,15 @@ const GIFTS: GiftItem[] = [
       "https://images.unsplash.com/photo-1566073771259-6a8506099945?w=600&h=400&fit=crop",
   },
   {
-    id: "roadtrip-mallorca",
-    title: "Road trip & spa en Mallorca",
+    id: "cenas-mallorca",
+    title: "Cenas en El Olivo & La Fortaleza",
     description:
-      "Día de ruta en auto por la Serra de Tramuntana con parada en un spa con vistas al Mediterráneo.",
-    totalPrice: 400,
+      "Dos cenas en los restaurantes más especiales de Mallorca: El Olivo en Deià y La Fortaleza en Pollença.",
+    totalPrice: 450,
     funded: 0,
-    icon: <Car className="w-6 h-6" />,
+    icon: <UtensilsCrossed className="w-6 h-6" />,
     location: "Mallorca, España",
-    image:
-      "https://images.unsplash.com/photo-1600240644455-3edc55c375fe?w=600&h=400&fit=crop",
+    image: `${import.meta.env.BASE_URL}images/el olivo.jpg`,
   },
   {
     id: "hotel-formentera",
@@ -252,8 +259,7 @@ const GIFTS: GiftItem[] = [
     funded: 0,
     icon: <Hotel className="w-6 h-6" />,
     location: "Formentera, España",
-    image:
-      "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=600&h=400&fit=crop",
+    image: `${import.meta.env.BASE_URL}images/formentera.jpg`,
   },
   {
     id: "buceo-formentera",
@@ -269,40 +275,49 @@ const GIFTS: GiftItem[] = [
   },
   {
     id: "ibiza-sunset",
-    title: "Atardecer en Ibiza",
+    title: "Atardecer y cena en Ibiza",
     description:
       "Atardecer frente al mar en un beach club de Ibiza, con cena y música con vista al Mediterráneo.",
     totalPrice: 500,
     funded: 0,
     icon: <Sun className="w-6 h-6" />,
     location: "Ibiza, España",
-    image:
-      "https://images.unsplash.com/photo-1504681869696-d977211a5f4c?w=600&h=400&fit=crop",
+    image: `${import.meta.env.BASE_URL}images/ibiza.jpg`,
   },
   {
     id: "guitarra-espana",
-    title: "Concierto de guitarra española",
+    title: "Noche de guitarra flamenca",
     description:
       "Noche de guitarra flamenca en vivo con cena y vinos en un local íntimo. Música, arte y gastronomía española.",
     totalPrice: 300,
     funded: 0,
     icon: <Sparkles className="w-6 h-6" />,
     location: "España",
-    image:
-      "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?w=600&h=400&fit=crop",
+    image: `${import.meta.env.BASE_URL}images/flamenco.jpg`,
+  },
+  {
+    id: "menorca-hotel",
+    title: "2 noches en Menorca",
+    description:
+      "Hotel en la isla más tranquila de las Baleares, con playas vírgenes, calas turquesas y pueblos con encanto.",
+    totalPrice: 400,
+    funded: 0,
+    icon: <Hotel className="w-6 h-6" />,
+    location: "Menorca, España",
+    image: `${import.meta.env.BASE_URL}images/menorca.jpg`,
+  },
+  {
+    id: "cenas-menorca",
+    title: "Cenas en Coral & Sa Punta",
+    description:
+      "Dos cenas en los mejores restaurantes de Menorca: Coral en Ciutadella y Sa Punta en Es Grau, frente al mar.",
+    totalPrice: 600,
+    funded: 0,
+    icon: <UtensilsCrossed className="w-6 h-6" />,
+    location: "Menorca, España",
+    image: `${import.meta.env.BASE_URL}images/coral menorca.jpg`,
   },
   /* ── GENERAL ── */
-  {
-    id: "vuelos",
-    title: "Vuelos México - Grecia",
-    description:
-      "Vuelos ida y vuelta desde Ciudad de México a Grecia para empezar nuestra aventura mediterránea.",
-    totalPrice: 2000,
-    funded: 0,
-    icon: <Plane className="w-6 h-6" />,
-    location: "México → Grecia",
-    image: `${import.meta.env.BASE_URL}images/vuelvo mexico grecia.jpg`,
-  },
   {
     id: "traslados",
     title: "Traslados internos",
@@ -336,30 +351,6 @@ const GIFTS: GiftItem[] = [
     location: "Cualquier destino",
     image:
       "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=600&h=400&fit=crop",
-  },
-  {
-    id: "buceo-mediterraneo",
-    title: "Buceo en el Mediterráneo",
-    description:
-      "Inmersión guiada para dos en aguas cristalinas, descubriendo fondos marinos y vida submarina.",
-    totalPrice: 400,
-    funded: 0,
-    icon: <Anchor className="w-6 h-6" />,
-    location: "Grecia o España",
-    image:
-      "https://images.unsplash.com/photo-1544551763-77932985c982?w=600&h=400&fit=crop",
-  },
-  {
-    id: "globo-capadocia",
-    title: "Vuelo en globo aerostático",
-    description:
-      "Sobrevolar paisajes mediterráneos al amanecer en globo aerostático. Una experiencia única e inolvidable.",
-    totalPrice: 600,
-    funded: 0,
-    icon: <Plane className="w-6 h-6" />,
-    location: "Mediterráneo",
-    image:
-      "https://images.unsplash.com/photo-1507608616759-54f48f0af0ee?w=600&h=400&fit=crop",
   },
 ];
 
