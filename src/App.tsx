@@ -1147,8 +1147,8 @@ export default function App() {
       {/* Hero */}
       <section className="relative h-[85vh] min-h-[500px] flex items-center justify-center overflow-hidden">
         <img
-          src="https://images.unsplash.com/photo-1530841377377-3ff06c0ca713?w=1600&h=900&fit=crop"
-          alt="Playa mediterránea"
+          src={`${import.meta.env.BASE_URL}images/hero-santorini.jpg`}
+          alt="Santorini, Grecia"
           className="absolute inset-0 w-full h-full object-cover"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/50" />
