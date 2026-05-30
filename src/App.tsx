@@ -52,15 +52,14 @@ interface GiftItem {
 const GIFTS: GiftItem[] = [
   {
     id: "vuelos",
-    title: "Vuelos CDMX → Europa",
+    title: "Vuelos México - Grecia",
     description:
-      "Vuelos ida y vuelta desde Ciudad de México a Europa para empezar nuestra aventura mediterránea.",
+      "Vuelos ida y vuelta desde Ciudad de México a Grecia para empezar nuestra aventura mediterránea.",
     totalPrice: 2000,
     funded: 0,
     icon: <Plane className="w-6 h-6" />,
-    location: "CDMX → Europa",
-    image:
-      "https://images.unsplash.com/photo-1569154941061-e231b4725ef1?w=600&h=400&fit=crop",
+    location: "México → Grecia",
+    image: `${import.meta.env.BASE_URL}images/vuelvo mexico grecia.jpg`,
   },
   {
     id: "traslados",
